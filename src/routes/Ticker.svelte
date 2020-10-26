@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import { data } from '../stores';
   import { CURRENCY_FORMATTER } from '../formatters';
 
@@ -13,7 +14,10 @@
     title: params.ticker?.toLocaleUpperCase(),
   };
 
-  $: [currency] = $data.currencies.filter(currency => currency.ticker === params.ticker);
+  let currency;
+  $: if ($data.currencies) {
+    [currency] = $data.currencies.filter(currency => currency.ticker === params.ticker);
+  }
 </script>
 
 {#if currency}
@@ -24,6 +28,17 @@
     <h2>Total earnings</h2>
     <TotalEarnings summary={currency} />
   </section>
+
+  {#if !currency.sameCurrency}
+  <section class="exchange">
+    <h2>Exchange rate</h2>
+    <CurrencyRate
+      ticker={currency.ticker}
+      rate={currency.tickerRate * currency.exchangeRate}
+      change24h={0}
+    />
+  </section>
+  {/if}
 
   <section class="lent">
     <h2>Amount Lent</h2>
@@ -42,7 +57,7 @@
   <section class="estimation">
     <h2>Estimated earnings</h2>
     <CurrencyDetails
-      pct1={currency.yearlyRate}
+      pct1={currency.yearlyRateCompound}
       pct2={currency.averageLendingRate}
       value1={CURRENCY_FORMATTER.format(currency.estEarningsYear)}
       value2={CURRENCY_FORMATTER.format(currency.estEarningsMonth)}
@@ -54,17 +69,6 @@
       pct2label="EDR"
     />
   </section>
-
-  {#if !currency.sameCurrency}
-  <section class="exchange">
-    <h2>Exchange rate</h2>
-    <CurrencyRate
-      ticker={currency.ticker}
-      rate={currency.tickerRate * currency.exchangeRate}
-      change24h={0}
-    />
-  </section>
-  {/if}
 </main>
 {/if}
 

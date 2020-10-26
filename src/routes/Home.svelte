@@ -1,6 +1,8 @@
 <script>
   import { data } from '../stores'
 
+  export let params = {};
+
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
   import ListItem from "../components/ListItem.svelte";

@@ -19,23 +19,24 @@ const processLog = (data) => {
 };
 
 const processCurrency = (ticker, data, displayCurrency) => {
-  const highestBid = data[ticker].highestBid || 0;
-  const averageLendingRate = data[ticker].averageLendingRate / 100 || 0;
-  const lentSum = data[ticker].lentSum || 0;
-  const maxToLend = data[ticker].maxToLend || 0;
-  const totalCoins = data[ticker].totalCoins || 0;
-  const totalEarnings = data[ticker].totalEarnings || 0;
-  const yesterdayEarnings = data[ticker].yesterdayEarnings || 0;
-  const todayEarnings = data[ticker].todayEarnings || 0;
+  const highestBid = parseFloat(data[ticker].highestBid) || 0;
+  const averageLendingRate =
+    parseFloat(data[ticker].averageLendingRate) / 100 || 0;
+  const lentSum = parseFloat(data[ticker].lentSum) || 0;
+  const maxToLend = parseFloat(data[ticker].maxToLend) || 0;
+  const totalCoins = parseFloat(data[ticker].totalCoins) || 0;
+  const totalEarnings = parseFloat(data[ticker].totalEarnings) || 0;
+  const yesterdayEarnings = parseFloat(data[ticker].yesterdayEarnings) || 0;
+  const todayEarnings = parseFloat(data[ticker].todayEarnings) || 0;
 
   const sameCurrency = ticker == displayCurrency.currency;
   // 1 for BTC and the current display currency, ticker's exchange rate for the rest
-  const tickerRate = sameCurrency || ticker === 'BTC' ? 1 : highestBid;
+  const tickerRate = sameCurrency || ticker === "BTC" ? 1 : highestBid;
   // 1 for the current display currency, display currency's exchange rate for the rest
   const exchangeRate = sameCurrency ? 1 : displayCurrency.highestBid;
 
-  const pctLent = lentSum / maxToLend;
-  const pctLentTotal = lentSum / totalCoins;
+  const pctLent = maxToLend ? lentSum / maxToLend : 0;
+  const pctLentTotal = totalCoins ? lentSum / totalCoins : 0;
 
   const earningsTotal = totalEarnings * tickerRate * exchangeRate;
   const earningsYesterday = yesterdayEarnings * tickerRate * exchangeRate;
@@ -44,7 +45,7 @@ const processCurrency = (ticker, data, displayCurrency) => {
   const netRate = averageLendingRate * 0.85;
   const effectiveRate = netRate * pctLent;
   const yearlyRate = effectiveRate * 365;
-  const yearlyRateCompound = (Math.pow(netRate + 1, 365) - 1) * 100 * pctLent; // with daily reinvestment
+  const yearlyRateCompound = (Math.pow(1 + netRate, 365) - 1) * pctLent; // with daily reinvestment
 
   const estEarnings24h =
     (lentSum * (1 + netRate) - lentSum) * tickerRate * exchangeRate;
@@ -81,7 +82,7 @@ const processCurrencies = (data) => {
   let currencies = [];
   let summary = {};
 
-  if (data && data['raw_data']) {
+  if (data && data["raw_data"]) {
     const tickers = Object.keys(data.raw_data);
 
     tickers.forEach((ticker) => {
