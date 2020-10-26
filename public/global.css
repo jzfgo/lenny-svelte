@@ -1,0 +1,61 @@
+:root {
+  --color-vivid-tangerine: #ff9580;
+  --color-spring-wood: #f8f8f2;
+  --color-mint-green: #8aff80;
+  --color-kimberly: #7970a9;
+  --color-hot-pink: #ff80bf;
+  --color-heliotrope: #9580ff;
+  --color-gun-powder: #454158;
+  --color-dolly: #ffff80;
+  --color-chardonnay: #ffca80;
+  --color-charade: #22212c;
+  --color-aquamarine: #80ffea;
+  --color-woodsmoke: #17171e;
+
+  --main-bg-color: var(--color-woodsmoke);
+  --main-fg-color: var(--color-spring-wood);
+  --main-heading-color: var(--color-gun-powder);
+
+  --main-success-color: var(--color-mint-green);
+  --main-warning-color: var(--color-dolly);
+  --main-error-color: var(--color-hot-pink);
+  --main-info-color: var(--color-aquamarine);
+  --main-muted-color: var(--color-gun-powder);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--main-bg-color);
+  color: var(--main-fg-color);
+  font-family: Nunito, sans-serif;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--main-heading-color);
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+  max-width: 100vw;
+}
