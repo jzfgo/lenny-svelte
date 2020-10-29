@@ -43,7 +43,7 @@
       <Indicator size="regular" icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24h)} color="warning" />
     </div>
   </div>
-  <LineChart />
+  <LineChart ticker={summary.ticker} />
 {/if}
 
 <style>

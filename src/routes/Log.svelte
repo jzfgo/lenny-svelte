@@ -9,18 +9,16 @@
   };
 </script>
 
-<main>
-  <TitleBar {...titleBarProps} />
-  {#if $data.log}
-    <div class="log">
-      {#each $data.log as logItem}
-        <LogItem {...logItem} />
-      {:else}
-        No activity.
-      {/each}
-    </div>
-  {/if}
-</main>
+<TitleBar {...titleBarProps} />
+{#if $data.log}
+  <div class="log">
+    {#each $data.log as logItem}
+      <LogItem {...logItem} />
+    {:else}
+      No activity.
+    {/each}
+  </div>
+{/if}
 
 <style>
 .log {

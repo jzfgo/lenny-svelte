@@ -6,6 +6,4 @@
   };
 </script>
 
-<main>
-  <TitleBar {...titleBarProps} />
-</main>
+<TitleBar {...titleBarProps} />
