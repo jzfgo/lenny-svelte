@@ -1,6 +1,7 @@
 <script>
-  import { data } from '../stores';
+  import currencies from '../config/currencies'
   import { CURRENCY_FORMATTER } from '../utils/formatters';
+  import { data } from '../stores';
 
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
@@ -13,9 +14,13 @@
     title: params.ticker?.toLocaleUpperCase(),
   };
 
+  const curConfig = currencies[params.ticker];
+
   let currency;
   $: if ($data.currencies) {
-    [currency] = $data.currencies.filter(currency => currency.ticker === params.ticker);
+    let curData;
+    [curData] = $data.currencies.filter(currency => currency.ticker === params.ticker);
+    currency = { ...curConfig, ...curData};
   }
 </script>
 
@@ -49,6 +54,8 @@
     value1label="lent"
     value2label="lendable"
     value3label="total"
+    gradientStart={currency.gradientStart}
+    gradientEnd={currency.gradientEnd}
   />
 </section>
 
@@ -65,6 +72,8 @@
     value3label="day"
     pct1label="APY"
     pct2label="EDR"
+    gradientStart={currency.gradientStart}
+    gradientEnd={currency.gradientEnd}
   />
 </section>
 {/if}

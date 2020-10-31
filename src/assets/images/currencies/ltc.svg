@@ -1,1 +1,10 @@
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="m15.352 20.855 1.039-3.913 2.461-.899.612-2.3-.021-.057-2.422.885 1.745-6.571h-4.949l-2.282 8.575-1.905.696-.63 2.371 1.904-.696-1.345 5.054h13.171l.844-3.145z" fill-rule="evenodd"/></svg>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient-ltc" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#80ffea" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#gradient-ltc)" fill-rule="evenodd"
+    d="m15.3521251 20.8547947 1.0392337-3.9131866 2.460417-.8988939.6119943-2.2997649-.0208955-.0570495-2.4219305.8848016 1.7450145-6.5707014h-4.9489215l-2.2820767 8.5749169-1.90537509.6960621-.62958531 2.3709067 1.9039173-.6954789-1.34498783 5.0535932h13.17104523l.8443713-3.1452053z" />
+</svg>

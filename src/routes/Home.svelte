@@ -29,7 +29,7 @@
 {#if $data.currencies}
 <section class="currencies">
   <h2>Earnings by currency</h2>
-  {#each $data.currencies as currency}
+  {#each $data.currencies as currency (currency.ticker)}
   <ListItem link={`/currency/${currency.ticker}`}>
     <CurrencySummary {...currency} />
   </ListItem>

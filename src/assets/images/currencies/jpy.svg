@@ -1,0 +1,10 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient-jpy" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff9580" />
+      <stop offset="1" stop-color="#8aff80" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#gradient-jpy)" fill-rule="evenodd"
+    d="m20.512 16.366v-1.62h-1.71l1.854-3.366 1.26-.486v-1.584l-4.86.09v1.494l1.008.396-1.908 3.78-1.818-3.798.918-.378v-1.584l-5.076.09v1.494l1.188.504 1.836 3.348h-1.692v1.62zm-1.746 5.634v-1.566l-1.35-.36v-1.008h3.096v-1.62h-9v1.62h3.114v1.008l-1.35.36v1.566z" />
+</svg>

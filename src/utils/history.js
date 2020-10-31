@@ -36,7 +36,7 @@ const processCurrency = (ticker, data) => {
     ),
     count: points.length,
   };
-  console.log(summary);
+  // console.log(summary);
 
   return {
     ticker: ticker.toLowerCase(),

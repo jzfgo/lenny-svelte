@@ -1,0 +1,10 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient-neo" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#8aff80" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#gradient-neo)" fill-rule="evenodd"
+    d="m9 11.0330435 5.3426087 2.5748869v10.3791305l-5.3426087-2.574887zm13.2452174-.1798957v10.23424l-5.3214331-2.3316591v-6.0439652zm-5.3982609-2.8531478 5.3426087 2.574887-7.7634782 2.7547826-5.34260874-2.574887z" />
+</svg>

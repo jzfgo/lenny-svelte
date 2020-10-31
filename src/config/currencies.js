@@ -1,218 +1,304 @@
+import AdaIcon from "../assets/images/currencies/ada.svg";
+import AlgIcon from "../assets/images/currencies/alg.svg";
+import AmpIcon from "../assets/images/currencies/amp.svg";
+import BchIcon from "../assets/images/currencies/bch.svg";
+import BtcIcon from "../assets/images/currencies/btc.svg";
+import BtgIcon from "../assets/images/currencies/btg.svg";
+import DaiIcon from "../assets/images/currencies/dai.svg";
+import DshIcon from "../assets/images/currencies/dsh.svg";
+import DefaultIcon from "../assets/images/currencies/default.svg";
+import DotIcon from "../assets/images/currencies/dot.svg";
+import EdoIcon from "../assets/images/currencies/edo.svg";
+import EosIcon from "../assets/images/currencies/eos.svg";
+import EtcIcon from "../assets/images/currencies/etc.svg";
+import EthIcon from "../assets/images/currencies/eth.svg";
+import EtpIcon from "../assets/images/currencies/etp.svg";
+import EurIcon from "../assets/images/currencies/eur.svg";
+import FttIcon from "../assets/images/currencies/ftt.svg";
+import GbpIcon from "../assets/images/currencies/gbp.svg";
+import IotIcon from "../assets/images/currencies/iot.svg";
+import JpyIcon from "../assets/images/currencies/jpy.svg";
+import LeoIcon from "../assets/images/currencies/leo.svg";
+import LtcIcon from "../assets/images/currencies/ltc.svg";
+import NeoIcon from "../assets/images/currencies/neo.svg";
+import OmgIcon from "../assets/images/currencies/omg.svg";
+import SanIcon from "../assets/images/currencies/san.svg";
+import TrxIcon from "../assets/images/currencies/trx.svg";
+import UsdIcon from "../assets/images/currencies/usd.svg";
+import UsdtIcon from "../assets/images/currencies/usdt.svg";
+import XautIcon from "../assets/images/currencies/xaut.svg";
+import XlmIcon from "../assets/images/currencies/xlm.svg";
+import XmrIcon from "../assets/images/currencies/xmr.svg";
+import XrpIcon from "../assets/images/currencies/xrp.svg";
+import XtzIcon from "../assets/images/currencies/xtz.svg";
+import ZecIcon from "../assets/images/currencies/zec.svg";
+import ZrxIcon from "../assets/images/currencies/zrx.svg";
+
 export default {
   ada: {
     name: "Cardano",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: AdaIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
-  algo: {
+  alg: {
     name: "Algorand",
-    gradientStart: "#ffca80",
+    icon: AlgIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#8aff80",
+    decimalPrecision: 8,
+  },
+  amp: {
+    name: "Ampleforth",
+    icon: AmpIcon,
+    gradientStart: "#80ffea",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
-  atom: {
+  ato: {
     name: "Cosmos",
+    icon: DefaultIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   bch: {
     name: "Bitcoin Cash",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: BchIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   bsv: {
     name: "Bitcoin SV",
+    icon: DefaultIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   btc: {
     name: "Bitcoin",
+    icon: BtcIcon,
+    gradientStart: "#ffca80",
+    gradientEnd: "#ffff80",
+    decimalPrecision: 8,
+  },
+  btg: {
+    name: "Bitcoin Gold",
+    icon: BtgIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   dai: {
     name: "Dai",
+    icon: DaiIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
-  dash: {
+  dsh: {
     name: "Dash",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: DshIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
   dot: {
     name: "Polka",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: DotIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#9580ff",
+    decimalPrecision: 8,
+  },
+  edo: {
+    name: "Eidoo",
+    icon: EdoIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   eos: {
     name: "EOS",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: EosIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   etc: {
     name: "Ether classic",
+    icon: EtcIcon,
     gradientStart: "#80ffea",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   eth: {
     name: "Ether",
+    icon: EthIcon,
     gradientStart: "#80ffea",
     gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   etp: {
     name: "Metaverse",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: EtpIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
   eur: {
     name: "Euro",
-    gradientStart: "#ffca80",
+    icon: EurIcon,
+    gradientStart: "#80ffea",
     gradientEnd: "#ffff80",
     decimalPrecision: 2,
   },
   ftt: {
     name: "FTX Token",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: FttIcon,
+    gradientStart: "#80ffea",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   gbp: {
     name: "Pound Sterling",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: GbpIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#9580ff",
     decimalPrecision: 2,
   },
-  iota: {
+  iot: {
     name: "IOTA",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: IotIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
   jpy: {
     name: "Japanese Yen",
+    icon: JpyIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 0,
   },
   leo: {
     name: "Leocoin",
-    gradientStart: "#ffca80",
+    icon: LeoIcon,
+    gradientStart: "#ff80bf",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   link: {
     name: "Chainlink",
+    icon: DefaultIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   ltc: {
     name: "Litecoin",
-    gradientStart: "#ffca80",
+    icon: LtcIcon,
+    gradientStart: "#80ffea",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   neo: {
     name: "NEO",
-    gradientStart: "#ffca80",
+    icon: NeoIcon,
+    gradientStart: "#8aff80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   omg: {
     name: "OmiseGO",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
-    decimalPrecision: 8,
-  },
-  pnt: {
-    name: "Eidoo",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: OmgIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   san: {
     name: "Santiment",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: SanIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
   trx: {
     name: "Tron",
-    gradientStart: "#ffca80",
+    icon: TrxIcon,
+    gradientStart: "#ff80bf",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   uni: {
     name: "Uniswap",
+    icon: DefaultIcon,
     gradientStart: "#ffca80",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   usd: {
     name: "US Dollar",
+    icon: UsdIcon,
     gradientStart: "#8aff80",
     gradientEnd: "#ffff80",
     decimalPrecision: 2,
   },
   usdt: {
     name: "USDt",
-    gradientStart: "#ffca80",
+    icon: UsdtIcon,
+    gradientStart: "#8aff80",
     gradientEnd: "#ffff80",
     decimalPrecision: 2,
   },
   xaut: {
     name: "Tether Gold",
-    gradientStart: "#ffca80",
+    icon: XautIcon,
+    gradientStart: "#ff80bf",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   xlm: {
     name: "Stellar",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: XlmIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#80ffea",
     decimalPrecision: 8,
   },
   xmr: {
     name: "Monero",
-    gradientStart: "#ffca80",
+    icon: XmrIcon,
+    gradientStart: "#ff80bf",
     gradientEnd: "#ffff80",
     decimalPrecision: 8,
   },
   xrp: {
     name: "Ripple",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: XrpIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#ffca80",
     decimalPrecision: 8,
   },
   xtz: {
     name: "Tezos",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: XtzIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
   zec: {
     name: "Zcash",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: ZecIcon,
+    gradientStart: "#ff9580",
+    gradientEnd: "#ffca80",
     decimalPrecision: 8,
   },
   zrx: {
     name: "0x",
-    gradientStart: "#ffca80",
-    gradientEnd: "#ffff80",
+    icon: ZrxIcon,
+    gradientStart: "#9580ff",
+    gradientEnd: "#8aff80",
     decimalPrecision: 8,
   },
 };

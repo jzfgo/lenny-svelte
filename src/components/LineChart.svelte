@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
   import * as Pancake from '@sveltejs/pancake';
+  import currencies from '../config/currencies';
   import getData from '../utils/history';
 
   import LineChartBg from '../assets/images/line-chart-bg.svg';
@@ -8,34 +8,30 @@
 
   export let ticker;
 
+  const curConfig = currencies[ticker];
+
   let currency;
+  let curData;
   getData().then((data) => {
-    [currency] = data.currencies.filter(currency => currency.ticker === ticker);
+    [curData] = data.currencies.filter(currency => currency.ticker === ticker);
+    currency = { ...curConfig, ...curData};
   });
 </script>
 
 <div class="line-chart">
-  {#if currency}
+  {#if curData}
   <div class="chart">
     <LineChartBg style="position:absolute; top:0; right:0; bottom:0; left:0; width:100vw; height:260px; z-index: 0" />
     <Pancake.Chart x1={currency.summary.x1} x2={currency.summary.x2} y1={currency.summary.y1} y2={currency.summary.y2}>
       <Pancake.Svg>
         <defs>
-          <linearGradient id="linear" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#ffca80"/>
-            <stop offset="100%" stop-color="#ff80bf"/>
+          <linearGradient id={`linear-${ticker}`} x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color={curConfig.gradientStart} />
+            <stop offset="100%" stop-color={curConfig.gradientEnd} />
           </linearGradient>
-          <filter id="glow" x="0" y="0" width="100%" height="100%">
-            <feGaussianBlur result="coloredGlow" stdDeviation="2" />
-            <feOffset dx="0" dy="0"/>
-            <feMerge>
-              <feMergeNode in="coloredGlow" />
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
         </defs>
         <Pancake.SvgLine data={currency.points} let:d>
-          <path class="data" {d} />
+          <path class="data" stroke={`url(#linear-${ticker})`} {d} />
         </Pancake.SvgLine>
       </Pancake.Svg>
     </Pancake.Chart>
@@ -96,7 +92,5 @@
     stroke-linejoin: round;
     stroke-linecap: round;
     stroke-width: 3px;
-    stroke: url(#linear);
-    filter: url(#glow);
   }
 </style>

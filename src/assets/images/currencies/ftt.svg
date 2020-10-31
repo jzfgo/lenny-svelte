@@ -1,0 +1,10 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient-ftt" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#80ffea" />
+      <stop offset="1" stop-color="#8aff80" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#gradient-ftt)" fill-rule="evenodd"
+    d="m16.364 19.7073455v4.2926545h-4.2137891v-4.2926545zm5.2282909-5.8536873v4.2926691h-9.44208v-4.2926691zm-10.37848 0v4.2926691h-4.2138109v-4.2926691zm13.9680073-5.8536582v4.2926836h-13.0316073v-4.2926836z" />
+</svg>
