@@ -9,7 +9,7 @@
 </script>
 
 <div class="indicator indicator--{size} {(background ? 'indicator--bg' : '')} {color ? `indicator--${color}` : ''} ">
-  <svelte:component this={icons[icon]} />
+  <svelte:component this={icons[icon]} class="icon icon--{size}" />
   <span class="value">{value}</span>
 </div>
 
@@ -25,6 +25,15 @@
     cursor: pointer;
 
     fill: var(--main-muted-color);
+  }
+
+  /* :global() prevents Svelte from deleting the styles */
+  :global(.icon--small) {
+    height: 1.5rem;
+  }
+
+  :global(.icon--regular) {
+    height: 2rem;
   }
 
   .indicator--bg {

@@ -1,7 +1,7 @@
 <script>
-  import { CURRENCY_FORMATTER, PERCENTAGE_FORMATTER } from '../formatters';
+  import { CURRENCY_FORMATTER, PERCENTAGE_FORMATTER } from '../utils/formatters';
   import icons from '../currency-icons'
-  import { tweenFrom } from '../tweens';
+  import { tweenFrom } from '../utils/tweens';
 
   export let ticker;
   export let rate;

@@ -1,5 +1,5 @@
 <script>
-  import { PERCENTAGE_FORMATTER } from '../formatters';
+  import { PERCENTAGE_FORMATTER } from '../utils/formatters';
 
   import RadialGraph from './graphs/RadialGraph.svelte';
 

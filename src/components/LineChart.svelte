@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import * as Pancake from '@sveltejs/pancake';
-  import getData from '../history';
+  import getData from '../utils/history';
 
   import LineChartBg from '../assets/images/line-chart-bg.svg';
   import Indicator from "../components/Indicator.svelte";
@@ -18,7 +18,7 @@
   {#if currency}
   <div class="chart">
     <LineChartBg style="position:absolute; top:0; right:0; bottom:0; left:0; width:100vw; height:260px; z-index: 0" />
-    <Pancake.Chart x1={currency.summary.x1} x2={currency.summary.x2} y1={currency.summary.y1} y2={currency.summary.y2} id="gradient-path">
+    <Pancake.Chart x1={currency.summary.x1} x2={currency.summary.x2} y1={currency.summary.y1} y2={currency.summary.y2}>
       <Pancake.Svg>
         <defs>
           <linearGradient id="linear" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -68,7 +68,6 @@
   .chart {
     grid-area: chart;
     height: 200px;
-    background-image: url(../assets/line-chart-bg.svg);
   }
 
   .metadata {

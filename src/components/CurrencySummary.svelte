@@ -1,7 +1,7 @@
 <script>
   import icons from '../currency-icons'
-  import { CURRENCY_FORMATTER } from '../formatters';
-  import { tweenFrom } from '../tweens';
+  import { CURRENCY_FORMATTER } from '../utils/formatters';
+  import { tweenFrom } from '../utils/tweens';
 
   import Indicator from "../components/Indicator.svelte";
   import RadialGraph from './graphs/RadialGraph.svelte';

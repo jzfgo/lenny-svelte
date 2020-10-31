@@ -1,7 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
   import { data } from '../stores';
-  import { CURRENCY_FORMATTER } from '../formatters';
+  import { CURRENCY_FORMATTER } from '../utils/formatters';
 
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
