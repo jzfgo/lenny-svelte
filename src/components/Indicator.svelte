@@ -27,6 +27,10 @@
     fill: var(--main-muted-color);
   }
 
+  .value {
+    white-space: nowrap;
+  }
+
   /* :global() prevents Svelte from deleting the styles */
   :global(.icon--small) {
     height: 1.5rem;

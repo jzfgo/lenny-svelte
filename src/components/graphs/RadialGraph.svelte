@@ -52,17 +52,17 @@
   }
 
   .progress {
+    animation: progress 1s;
     stroke-dasharray: var(--circ);
     stroke-dashoffset: var(--progress);
-    animation: progress 1s;
   }
 
   @keyframes progress {
     from {
-        stroke-dashoffset: 0;
+      stroke-dashoffset: var(--circ);
     }
     to {
-        stroke-dashoffset: var(--progress);
+      stroke-dashoffset: var(--progress);
     }
   }
 </style>

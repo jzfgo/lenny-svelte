@@ -1,9 +1,8 @@
 <script>
   import { CURRENCY_FORMATTER, PERCENTAGE_FORMATTER } from '../utils/formatters';
-  import currencies from '../config/currencies'
   import { tweenFrom } from '../utils/tweens';
 
-  export let ticker;
+  export let config;
   export let rate;
   export let change24h;
 
@@ -18,7 +17,7 @@
 
 <div class="currency-rate">
   <div class="ticker">
-    <svelte:component this={currencies[ticker]?.icon}/>
+    <svelte:component this={config.icon}/>
   </div>
   <div class="rate">{CURRENCY_FORMATTER.format($rateTween)}</div>
   {#if change24h}

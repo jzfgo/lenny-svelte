@@ -1,5 +1,4 @@
 <script>
-  import currencies from '../config/currencies'
   import { CURRENCY_FORMATTER } from '../utils/formatters';
   import { data } from '../stores';
 
@@ -14,13 +13,9 @@
     title: params.ticker?.toLocaleUpperCase(),
   };
 
-  const curConfig = currencies[params.ticker];
-
   let currency;
   $: if ($data.currencies) {
-    let curData;
-    [curData] = $data.currencies.filter(currency => currency.ticker === params.ticker);
-    currency = { ...curConfig, ...curData};
+    currency = $data.currencies.get(params.ticker);
   }
 </script>
 
@@ -29,19 +24,19 @@
 
 <section class="summary">
   <h2>Total earnings</h2>
-  <TotalEarnings summary={currency} />
+  <TotalEarnings {currency} summary={currency.summary} />
 </section>
 
-{#if !currency.sameCurrency}
+  {#if !currency.sameCurrency}
 <section class="exchange">
   <h2>Exchange rate</h2>
   <CurrencyRate
-    ticker={currency.ticker}
+    config={currency.config}
     rate={currency.tickerRate * currency.exchangeRate}
     change24h={0}
   />
 </section>
-{/if}
+  {/if}
 
 <section class="lent">
   <h2>Amount Lent</h2>

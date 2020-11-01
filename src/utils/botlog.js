@@ -79,22 +79,20 @@ const processCurrency = (ticker, data, displayCurrency) => {
 };
 
 const processCurrencies = (data) => {
-  let currencies = [];
+  let currencies = new Map();
   let summary = {};
 
   if (data && data["raw_data"]) {
-    const tickers = Object.keys(data.raw_data);
-
-    tickers.forEach((ticker) => {
+    Object.keys(data.raw_data).forEach((ticker) => {
       let currency = processCurrency(
         ticker,
         data.raw_data,
         data.outputCurrency
       );
-      currencies.push(currency);
+      currencies.set(ticker.toLowerCase(), currency);
     });
 
-    summary = currencies.reduce((a, b) => ({
+    summary = Array.from(currencies.values()).reduce((a, b) => ({
       earningsTotal: a.earningsTotal + b.earningsTotal,
       earningsYesterday: a.earningsYesterday + b.earningsYesterday,
       earningsToday: a.earningsToday + b.earningsToday,

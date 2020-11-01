@@ -1,18 +1,15 @@
 <script>
-  import currencies from '../config/currencies'
   import { CURRENCY_FORMATTER } from '../utils/formatters';
   import { tweenFrom } from '../utils/tweens';
 
   import Indicator from "../components/Indicator.svelte";
   import RadialGraph from './graphs/RadialGraph.svelte';
 
-  export let ticker = 'btc';
+  export let config;
   export let pctLent = .5;
   export let earningsTotal = 0;
   export let earningsToday = 0;
   export let estEarnings24h = 0;
-
-  const currency = currencies[ticker];
 
   const earningsTotalTween = tweenFrom(0);
   const earningsTodayTween = tweenFrom(0);
@@ -27,8 +24,8 @@
 
 <div class="currency-summary">
   <div class="graph">
-    <RadialGraph pct={pctLent} gradientStart={currency.gradientStart} gradientEnd={currency.gradientEnd}>
-      <svelte:component this={currency.icon} />
+    <RadialGraph pct={pctLent} gradientStart={config.gradientStart} gradientEnd={config.gradientEnd}>
+      <svelte:component this={config.icon} />
     </RadialGraph>
   </div>
   <div class="earningsTotal">{CURRENCY_FORMATTER.format($earningsTotalTween)}</div>

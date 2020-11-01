@@ -10,16 +10,17 @@
   import AngleLeftIcon from '../assets/images/angle-left.svg';
   import AngleRightIcon from '../assets/images/angle-right.svg';
 
+  export let currency;
   export let summary;
 
   const earningsTotal = tweenFrom(0);
   const earningsToday = tweenFrom(0);
   const estEarnings24h = tweenFrom(0);
 
-  $: if (summary) {
-    earningsTotal.set(summary.earningsTotal);
-    earningsToday.set(summary.earningsToday);
-    estEarnings24h.set(summary.estEarnings24h);
+  $: if (summary || currency) {
+    earningsTotal.set(summary.earningsTotal ?? currency.earningsTotal);
+    earningsToday.set(summary.earningsToday ?? currency.earningsToday);
+    estEarnings24h.set(summary.estEarnings24h ?? currency.estEarnings24h);
   }
 </script>
 
@@ -43,7 +44,9 @@
       <Indicator size="regular" icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24h)} color="warning" />
     </div>
   </div>
-  <LineChart ticker={summary.ticker} />
+{/if}
+{#if currency}
+  <LineChart {currency} />
 {/if}
 
 <style>

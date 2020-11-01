@@ -1,5 +1,3 @@
-import { CurveInterpolator } from "curve-interpolator";
-
 const getJSON = async () => {
   let res = await fetch(`/history.json?${Date.now()}`);
   let data = await res.json();
@@ -9,14 +7,15 @@ const getJSON = async () => {
 const processCurrency = (ticker, data) => {
   const points = [];
   const rawPoints = data[ticker];
-  const CHART_DAYS = 15;
+  const CHART_DAYS = 30;
   const DAY_LENGTH = -86400;
   const LAST_DATE = new Date().setUTCHours(0, 0, 0, 0) / 1000;
 
   // Get the last points
   const slicedPoints = rawPoints.slice(-CHART_DAYS);
 
-  // create a range of 15 days
+  // create a range of empty points
+  // (to fill the gaps in the previous one)
   const emptyPoints = [...Array(CHART_DAYS)].map((_, i) => [
     LAST_DATE + i * DAY_LENGTH,
     0,
@@ -29,13 +28,8 @@ const processCurrency = (ticker, data) => {
   const mergedPoints = Array.from(mergedMap);
   mergedPoints.sort((a, b) => a[0] - b[0]);
   const slicedMergedPoints = mergedPoints.slice(-CHART_DAYS);
-  console.log(ticker, slicedMergedPoints);
 
-  // const smoothPoints = mergedPoints;
-  const interp = new CurveInterpolator(slicedMergedPoints, { tension: 0.2 });
-  const smoothPoints = interp.getPoints(slicedMergedPoints.length * 10);
-
-  smoothPoints.forEach((point) => {
+  slicedMergedPoints.forEach((point) => {
     points.push({
       x: point[0],
       y: point[1],
@@ -43,25 +37,19 @@ const processCurrency = (ticker, data) => {
   });
 
   const summary = {
-    y1: Math.min.apply(
+    min: Math.min.apply(
       Math,
-      points.map((o) => o.y)
+      slicedMergedPoints.map((o) => o[1])
     ),
-    y2: Math.max.apply(
+    max: Math.max.apply(
       Math,
-      points.map((o) => o.y)
+      slicedMergedPoints.map((o) => o[1])
     ),
-    x1: Math.min.apply(
-      Math,
-      points.map((o) => o.x)
-    ),
-    x2: Math.max.apply(
-      Math,
-      points.map((o) => o.x)
-    ),
-    count: points.length,
+    start: slicedMergedPoints[0][0],
+    end: slicedMergedPoints[slicedMergedPoints.length - 1][0],
+    count: slicedMergedPoints.length,
   };
-  // console.log(summary);
+  // console.log(ticker, summary, slicedMergedPoints);
 
   return {
     ticker: ticker.toLowerCase(),
@@ -71,13 +59,12 @@ const processCurrency = (ticker, data) => {
 };
 
 const processCurrencies = (data) => {
-  const tickers = Object.keys(data);
-
+  let currencies = new Map();
   let summary = {};
-  let currencies = [];
-  tickers.forEach((ticker) => {
+
+  Object.keys(data).forEach((ticker) => {
     let currency = processCurrency(ticker, data);
-    currencies.push(currency);
+    currencies.set(ticker.toLowerCase(), currency);
   });
 
   return { currencies, summary };
