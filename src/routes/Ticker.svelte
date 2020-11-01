@@ -49,8 +49,8 @@
     value1label="lent"
     value2label="lendable"
     value3label="total"
-    gradientStart={currency.gradientStart}
-    gradientEnd={currency.gradientEnd}
+    gradientStart={currency.config.gradientStart}
+    gradientEnd={currency.config.gradientEnd}
   />
 </section>
 
@@ -67,8 +67,8 @@
     value3label="day"
     pct1label="APY"
     pct2label="EDR"
-    gradientStart={currency.gradientStart}
-    gradientEnd={currency.gradientEnd}
+    gradientStart={currency.config.gradientStart}
+    gradientEnd={currency.config.gradientEnd}
   />
 </section>
 {/if}

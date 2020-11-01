@@ -5,11 +5,15 @@
   import { scaleLinear } from 'd3-scale';
   import { line, curveBasis } from 'd3-shape';
 
+  import { DATE_FORMATTER } from '../utils/formatters';
+
   import LineChartBg from '../assets/images/line-chart-bg.svg';
   import Indicator from "../components/Indicator.svelte";
 
   // the props
   export let currency;
+
+  const { summary, config } = currency;
 
   // the scales
   const xScale = scaleLinear()
@@ -38,26 +42,26 @@
 <div class="line-chart" bind:this={wrapper} style="--length: {lineLength}">
   <div class="chart">
     <LineChartBg style="position:absolute; top:0; right:0; bottom:0; left:0; width:100vw; height:260px; z-index: 0" />
-    <Pancake.Chart x1={currency.summary.start} x2={currency.summary.end} y1={currency.summary.min} y2={currency.summary.max}>
+    <Pancake.Chart x1={summary.start} x2={summary.end} y1={summary.min} y2={summary.max}>
       <Pancake.Svg>
         <defs>
-          <linearGradient id={`linear-${currency.config.gradientStart}-${currency.config.gradientEnd}`} x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color={currency.config.gradientStart} />
-            <stop offset="100%" stop-color={currency.config.gradientEnd} />
+          <linearGradient id={`linear-${config.gradientStart}-${config.gradientEnd}`} x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color={config.gradientStart} />
+            <stop offset="100%" stop-color={config.gradientEnd} />
           </linearGradient>
         </defs>
         <Pancake.SvgLine data={currency.points} let:d>
-          <path class="data" d={pathLine(currency.points)} stroke={`url(#linear-${currency.config.gradientStart}-${currency.config.gradientEnd})`} />
+          <path class="data" d={pathLine(currency.points)} stroke={`url(#linear-${config.gradientStart}-${config.gradientEnd})`} />
         </Pancake.SvgLine>
       </Pancake.Svg>
     </Pancake.Chart>
   </div>
   <div class="metadata">
-    <Indicator icon="arrow-to-left" value={currency.summary.start} color="muted" />
+    <Indicator icon="arrow-to-left" value={DATE_FORMATTER.format(new Date(summary.start*1000))} color="muted" />
 
     <div class="minmax">
-      <Indicator icon="arrow-to-bottom" value={currency.summary.min} color="error" />
-      <Indicator icon="arrow-to-top" value={currency.summary.max} color="success" />
+      <Indicator icon="arrow-to-bottom" value={summary.min} color="error" />
+      <Indicator icon="arrow-to-top" value={summary.max} color="success" />
     </div>
   </div>
 </div>
@@ -80,10 +84,6 @@
     grid-area: chart;
     width: 100vw;
     height: 200px;
-  }
-
-  svg {
-    vector-effect: non-scaling-stroke;
   }
 
   path.data {
