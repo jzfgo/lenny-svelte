@@ -58,7 +58,7 @@
   .currency-details {
     display: grid;
     grid-template-columns: 6rem 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
 
     background: rgba(0,0,0,.3);
