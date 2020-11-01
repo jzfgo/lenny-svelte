@@ -1,5 +1,6 @@
 <script>
   import * as Pancake from '@sveltejs/pancake';
+
   import currencies from '../config/currencies';
   import getData from '../utils/history';
 

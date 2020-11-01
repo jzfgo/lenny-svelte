@@ -10,6 +10,7 @@
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@sveltejs/pancake": "^0.0.17",
+    "curve-interpolator": "^2.0.8",
     "gradient-path": "^2.1.0",
     "rollup": "^2.33.0",
     "rollup-plugin-livereload": "^2.0.0",
