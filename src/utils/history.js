@@ -49,7 +49,6 @@ const processCurrency = (ticker, data) => {
     end: slicedMergedPoints[slicedMergedPoints.length - 1][0],
     count: slicedMergedPoints.length,
   };
-  // console.log(ticker, summary, slicedMergedPoints);
 
   return {
     ticker: ticker.toLowerCase(),
@@ -66,6 +65,8 @@ const processCurrencies = (data) => {
     let currency = processCurrency(ticker, data);
     currencies.set(ticker.toLowerCase(), currency);
   });
+
+  // TODO: Summary
 
   return { currencies, summary };
 };

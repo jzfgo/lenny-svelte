@@ -29,9 +29,9 @@
 {#if $data.currencies}
 <section class="currencies">
   <h2>Earnings by currency</h2>
-  {#each Array.from($data.currencies) as [ticker, { config, pctLent, earningsTotal, earningsToday, estEarnings24h }]}
+  {#each Array.from($data.currencies) as [ticker, currency]}
   <ListItem link={`/currency/${ticker}`}>
-    <CurrencySummary {config} {pctLent} {earningsTotal} {earningsToday} {estEarnings24h} />
+    <CurrencySummary {currency} />
   </ListItem>
   {/each}
 </section>

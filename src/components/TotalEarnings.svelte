@@ -3,7 +3,7 @@
   import { tweenFrom } from '../utils/tweens';
 
   import Indicator from "../components/Indicator.svelte";
-  import LineChart from "../components/LineChart.svelte";
+  import EarningsChart from "./EarningsChart.svelte";
 
   import CornerBottomLeftIcon from '../assets/images/corner-bottom-left.svg';
   import CornerBottomRightIcon from '../assets/images/corner-bottom-right.svg';
@@ -46,7 +46,7 @@
   </div>
 {/if}
 {#if currency}
-  <LineChart {currency} />
+  <EarningsChart {currency} />
 {/if}
 
 <style>

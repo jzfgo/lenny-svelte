@@ -44,6 +44,7 @@
     left: 0;
 
     fill: var(--color-vivid-tangerine);
+    z-index: 1000;
   }
 
   .title {
