@@ -1,8 +1,9 @@
 export const CURRENCY_FORMATTER = new Intl.NumberFormat("en", {
   style: "currency",
   currency: "USD",
-  minimumSignificantDigits: 3,
-  maximumSignificantDigits: 5,
+  minimumIntegerDigits: 1,
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
 });
 
 export const PERCENTAGE_FORMATTER = new Intl.NumberFormat("en", {
