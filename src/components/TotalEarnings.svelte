@@ -9,6 +9,7 @@
   import CornerBottomRightIcon from '../assets/images/corner-bottom-right.svg';
   import AngleLeftIcon from '../assets/images/angle-left.svg';
   import AngleRightIcon from '../assets/images/angle-right.svg';
+  import LineChartBg from '../assets/images/line-chart-bg.svg';
 
   export let currency;
   export let summary;
@@ -46,6 +47,7 @@
   </div>
 {/if}
 {#if currency}
+  <LineChartBg />
   <EarningsChart {currency} />
 {/if}
 
@@ -84,5 +86,11 @@
     text-transform: uppercase;
     color: var(--main-muted-color);
     fill: var(--main-muted-color);
+  }
+
+  :global(#line-chart-bg) {
+    position: absolute;
+    width: 100vw;
+    height: 260px;
   }
 </style>

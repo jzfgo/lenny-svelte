@@ -10,6 +10,7 @@
   export let width;
   export let height;
   export let strokeWidth;
+  export let startOpacity = 1;
 
   const { summary, config } = currency;
 
@@ -40,8 +41,8 @@
   <Pancake.Chart x1={summary.start} x2={summary.end} y1={summary.min} y2={summary.max}>
     <Pancake.Svg>
       <defs>
-        <linearGradient id={`linear-${config.gradientStart}-${config.gradientEnd}`} x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color={config.gradientStart} />
+        <linearGradient id={`linear-${config.gradientStart}-${config.gradientEnd}`} x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%"   stop-color={config.gradientStart} stop-opacity={startOpacity} />
           <stop offset="100%" stop-color={config.gradientEnd} />
         </linearGradient>
       </defs>
@@ -75,5 +76,9 @@
     to {
       stroke-dashoffset: 0;
     }
+  }
+
+  :global(.chart svg) {
+    padding: calc(var(--strokeWidth) / 2);
   }
 </style>

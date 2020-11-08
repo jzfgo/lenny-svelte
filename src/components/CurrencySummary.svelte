@@ -31,7 +31,7 @@
     <Indicator icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24hTween)} background={false} color="warning" />
   </div>
   <div class="line-chart">
-    <LineChart {currency} width="4rem" height="3rem" strokeWidth="1px" />
+    <LineChart {currency} width="4rem" height="3rem" strokeWidth="1px" startOpacity="0" />
   </div>
 </div>
 
@@ -39,8 +39,7 @@
   .currency-summary {
     display: grid;
     align-content: space-between;
-    grid-template-columns: 3rem 7.5rem 4rem 4rem;
-    width: max-content;
+    grid-template-columns: 3rem minmax(7.5rem, 1fr) minmax(4rem, 1fr) 4rem;
     height: 3rem;
     margin: 1rem 0 1rem 1rem;
   }
