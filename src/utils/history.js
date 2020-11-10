@@ -17,7 +17,7 @@ const processCurrency = (ticker, data) => {
   // create a range of empty points
   // (to fill the gaps in the previous one)
   const emptyPoints = [...Array(CHART_DAYS)].map((_, i) => [
-    LAST_DATE + i * DAY_LENGTH,
+    LAST_DATE + (i + 1) * DAY_LENGTH,
     0,
   ]);
 
