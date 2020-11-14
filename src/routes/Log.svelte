@@ -23,5 +23,6 @@
 <style>
 .log {
   padding: 20px 15px;
+  background-color: var(--color-woodsmoke);
 }
 </style>
