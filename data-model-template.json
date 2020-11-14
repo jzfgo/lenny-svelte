@@ -1,0 +1,275 @@
+{
+  "aggregate": {
+    "config": {
+      "displayCurrency": "USD",
+      "effRateMode": "lentperc",
+      "gradientEnd": "#ffca80",
+      "gradientStart": "#ffca80",
+      "refreshInterval": 30
+    },
+    "chart": {
+      "meta": {
+        "min": 0,
+        "max": 0,
+        "start": 0,
+        "end": 0,
+        "count": 30
+      },
+      "points": []
+    },
+    "summary": {
+      "earningsTotal": 0,
+      "earningsYesterday": 0,
+      "earningsToday": 0,
+      "estEarnings24h": 0,
+      "estEarningsMonth": 0,
+      "estEarningsYear": 0
+    },
+    "log": [
+      {
+        "time": "2020-11-11 21:19:58",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:19:44",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:19:28",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:18:38",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:18:33",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:17:18",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:17:03",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:16:48",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:16:23",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:14:53",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:14:38",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:14:18",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:12:58",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:12:42",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:12:17",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:10:57",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:10:42",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:09:52",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:09:47",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:08:32",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:08:17",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:08:02",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:04:47",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 21:01:32",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:58:16",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:55:01",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:51:46",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:48:31",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:45:16",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:42:00",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:38:45",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:35:30",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:32:15",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:28:59",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:25:43",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:22:28",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:19:13",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:15:57",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:12:41",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:09:26",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:06:10",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 20:02:55",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:59:40",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:56:25",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:53:09",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:49:54",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:46:39",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:44:54",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:44:39",
+        "message": ""
+      },
+      {
+        "time": "2020-11-11 19:44:19",
+        "message": ""
+      }
+    ],
+  },
+  "currencies": {
+    "btc": {
+      "chart": {
+        "meta": {
+          "min": 0,
+          "max": 0,
+          "start": 0,
+          "end": 0,
+          "count": 30
+        },
+        "points": []
+      },
+      "config": {
+        "format": {
+          "minimumIntegerDigits": 1,
+          "minimumFractionDigits": 0,
+          "maximumFractionDigits": 8
+        },
+        "gradientEnd": "#ffff80",
+        "gradientStart": "#ffca80",
+        "icon": "Btc",
+        "name": "Bitcoin"
+      },
+      "summary": {
+        "earningsToday": 0,
+        "earningsTotal": 0,
+        "earningsYesterday": 0,
+        "estEarnings24h": 0,
+        "estEarningsMonth": 0,
+        "estEarningsYear": 0
+      },
+      "details": {
+        "avgLendingRate": 0,
+        "lentSum": 0,
+        "maxToLend": 0,
+        "pctLent": 0,
+        "pctLentTotal": 0,
+        "ticker": "btc",
+        "totalCoins": 0,
+        "yearlyRate": 0,
+        "yearlyRateCompound": 0
+      }
+    }
+  }
+}

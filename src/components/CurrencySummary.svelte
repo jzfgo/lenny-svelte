@@ -6,23 +6,32 @@
   import RadialGraph from './graphs/RadialGraph.svelte';
   import LineChart from "../components/LineChart.svelte";
 
-  export let currency;
+  export let chart;
+  export let config;
+  export let pctLent;
+  export let summary;
+
+  const { gradientStart, gradientEnd, icon } = config;
+  const { earningsTotal, earningsToday, estEarnings24h } = summary;
 
   const earningsTotalTween = tweenFrom(0);
   const earningsTodayTween = tweenFrom(0);
   const estEarnings24hTween = tweenFrom(0);
 
+  let pct = 0;
   $: {
-    earningsTotalTween.set(currency.earningsTotal);
-    earningsTodayTween.set(currency.earningsToday);
-    estEarnings24hTween.set(currency.estEarnings24h);
+    earningsTotalTween.set(earningsTotal);
+    earningsTodayTween.set(earningsToday);
+    estEarnings24hTween.set(estEarnings24h);
+
+    pct = pctLent;
   }
 </script>
 
 <div class="currency-summary">
   <div class="radial-graph">
-    <RadialGraph pct={currency.pctLent} gradientStart={currency.config.gradientStart} gradientEnd={currency.config.gradientEnd}>
-      <svelte:component this={currency.config.icon} />
+    <RadialGraph {pct} {gradientStart} {gradientEnd}>
+      <svelte:component this={icon} />
     </RadialGraph>
   </div>
   <div class="earningsTotal">{CURRENCY_FORMATTER.format($earningsTotalTween)}</div>
@@ -31,7 +40,7 @@
     <Indicator icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24hTween)} background={false} color="warning" />
   </div>
   <div class="line-chart">
-    <LineChart {currency} width="4rem" height="3rem" strokeWidth="1px" startOpacity="0" />
+    <LineChart {chart} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity="0" />
   </div>
 </div>
 

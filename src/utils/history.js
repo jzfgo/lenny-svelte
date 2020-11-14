@@ -36,7 +36,7 @@ const processCurrency = (ticker, data) => {
     });
   });
 
-  const summary = {
+  const meta = {
     min: Math.min.apply(
       Math,
       slicedMergedPoints.map((o) => o[1])
@@ -52,23 +52,31 @@ const processCurrency = (ticker, data) => {
 
   return {
     ticker: ticker.toLowerCase(),
-    summary,
-    points,
+    chart: { meta, points },
   };
 };
 
 const processCurrencies = (data) => {
   let currencies = new Map();
-  let summary = {};
+  let chart = {
+    meta: {
+      min: 0,
+      max: 0.00030851,
+      start: 1602547200,
+      end: 1605052800,
+      count: 30,
+    },
+    points: [],
+  };
 
   Object.keys(data).forEach((ticker) => {
     let currency = processCurrency(ticker, data);
     currencies.set(ticker.toLowerCase(), currency);
   });
 
-  // TODO: Summary
+  // TODO: Chart
 
-  return { currencies, summary };
+  return { chart, currencies };
 };
 
 export default async () => {

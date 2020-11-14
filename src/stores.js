@@ -11,7 +11,7 @@ const gatherData = async () => {
       const [botlogData, historyData] = data;
 
       const currencies = new Map();
-      botlogData.currencies.forEach((botlogCurrency, key, map) => {
+      botlogData.currencies.forEach((botlogCurrency, key, _) => {
         currencies.set(key, {
           config: curConfig[key],
           ...botlogCurrency,
@@ -20,9 +20,19 @@ const gatherData = async () => {
       });
 
       return {
+        aggregate: {
+          config: {
+            displayCurrency: "USD",
+            effRateMode: "lentperc",
+            gradientEnd: "#ffca80",
+            gradientStart: "#ffca80",
+            refreshInterval: 30,
+          },
+          chart: historyData.chart,
+          log: botlogData.log,
+          summary: botlogData.summary,
+        },
         currencies,
-        summary: { ...botlogData.summary, ...historyData.summary },
-        log: botlogData.log,
       };
     })
     .catch((reason) => {
@@ -36,7 +46,7 @@ export const data = readable({}, (set) => {
   const interval = setInterval(() => {
     gatherData().then((data) => set(data));
     console.log("Updating…");
-  }, 30000);
+  }, 10000);
 
   return () => clearInterval(interval);
 });

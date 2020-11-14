@@ -11,7 +11,7 @@
 
   const circ = 2 * Math.PI * internalRadius;
 
-  let progress = circ * (1 - pct);
+  $: progress = circ * (1 - pct);
 </script>
 
 <div class="radial-graph" style="--width: {width}px; --height: {height}px">

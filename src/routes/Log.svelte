@@ -7,12 +7,13 @@
   const titleBarProps = {
     title: 'Activity Log',
   };
+
 </script>
 
 <TitleBar {...titleBarProps} />
-{#if $data.log}
+{#if $data.aggregate}
   <div class="log">
-    {#each $data.log as logItem}
+    {#each $data.aggregate.log as logItem}
       <LogItem {...logItem} />
     {:else}
       No activity.

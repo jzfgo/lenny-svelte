@@ -4,22 +4,26 @@
   import LineChart from "../components/LineChart.svelte";
   import Indicator from "../components/Indicator.svelte";
 
-  export let currency;
+  export let chart;
+  export let gradientStart;
+  export let gradientEnd;
 
-  const { summary } = currency;
+  let startDate = DATE_FORMATTER.format(new Date(chart.meta.start * 1000));
 </script>
 
-<div class="line-chart">
-  <LineChart {currency} width="100vw" height="200px" strokeWidth="3px" />
-  <div class="metadata">
-    <Indicator icon="arrow-to-left" value={DATE_FORMATTER.format(new Date(summary.start*1000))} color="muted" />
+{#if chart}
+  <div class="line-chart">
+    <LineChart {chart} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" />
+    <div class="metadata">
+      <Indicator icon="arrow-to-left" value={startDate} color="muted" />
 
-    <div class="minmax">
-      <Indicator icon="arrow-to-bottom" value={summary.min} color="error" />
-      <Indicator icon="arrow-to-top" value={summary.max} color="success" />
+      <div class="minmax">
+        <Indicator icon="arrow-to-bottom" value={chart.meta.min} color="error" />
+        <Indicator icon="arrow-to-top" value={chart.meta.max} color="success" />
+      </div>
     </div>
   </div>
-</div>
+{/if}
 
 <style>
   .line-chart {

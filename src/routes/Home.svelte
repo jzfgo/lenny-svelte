@@ -21,27 +21,29 @@
 
 <TitleBar {...titleBarProps} />
 
+{#if $data.aggregate}
 <section class="summary">
   <h2>Total earnings</h2>
-  <TotalEarnings summary={$data.summary} />
+  <TotalEarnings chart={$data.aggregate.chart} config={$data.aggregate.config} summary={$data.aggregate.summary} />
 </section>
+{/if}
 
 {#if $data.currencies}
 <section class="currencies">
   <h2>Earnings by currency</h2>
-  {#each Array.from($data.currencies) as [ticker, currency]}
+  {#each Array.from($data.currencies) as [ticker, { chart, config, details: { pctLent }, summary }]}
   <ListItem link={`/currency/${ticker}`}>
-    <CurrencySummary {currency} />
+    <CurrencySummary {chart} {config} {pctLent} {summary} />
   </ListItem>
   {/each}
 </section>
 {/if}
 
-{#if $data.log}
+{#if $data.aggregate}
 <section class="module log">
   <h2>Activity log</h2>
   <ListItem link="/activity-log">
-    <LogSummary {...$data.log[0]} />
+    <LogSummary {...$data.aggregate.log[0]} />
   </ListItem>
 </section>
 {/if}

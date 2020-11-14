@@ -11,44 +11,43 @@
   import AngleRightIcon from '../assets/images/angle-right.svg';
   import LineChartBg from '../assets/images/line-chart-bg.svg';
 
-  export let currency;
+  export let chart;
+  export let config;
   export let summary;
 
   const earningsTotal = tweenFrom(0);
   const earningsToday = tweenFrom(0);
   const estEarnings24h = tweenFrom(0);
 
-  $: if (summary || currency) {
-    earningsTotal.set(summary.earningsTotal ?? currency.earningsTotal);
-    earningsToday.set(summary.earningsToday ?? currency.earningsToday);
-    estEarnings24h.set(summary.estEarnings24h ?? currency.estEarnings24h);
+  $: if (summary) {
+    earningsTotal.set(summary.earningsTotal);
+    earningsToday.set(summary.earningsToday);
+    estEarnings24h.set(summary.estEarnings24h);
   }
 </script>
 
-{#if summary}
-  <div class="earnings">
-    <div class="earnings-total">
-      <span class="value">
-        {CURRENCY_FORMATTER.format($earningsTotal)}
-      </span>
-      <div class="label">
-        <CornerBottomLeftIcon width="32" /> All Time <CornerBottomRightIcon width="32" />
-      </div>
-    </div>
-    <div class="earnings-24h">
-      <Indicator size="regular" icon="piggy-bank" value={CURRENCY_FORMATTER.format($earningsToday)} color="success" />
-
-      <div class="label">
-        <AngleLeftIcon width="32" /> 24h <AngleRightIcon width="32" />
-      </div>
-
-      <Indicator size="regular" icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24h)} color="warning" />
+<div class="earnings">
+  <div class="earnings-total">
+    <span class="value">
+      {CURRENCY_FORMATTER.format($earningsTotal)}
+    </span>
+    <div class="label">
+      <CornerBottomLeftIcon width="32" /> All Time <CornerBottomRightIcon width="32" />
     </div>
   </div>
-{/if}
-{#if currency}
+  <div class="earnings-24h">
+    <Indicator size="regular" icon="piggy-bank" value={CURRENCY_FORMATTER.format($earningsToday)} color="success" />
+
+    <div class="label">
+      <AngleLeftIcon width="32" /> 24h <AngleRightIcon width="32" />
+    </div>
+
+    <Indicator size="regular" icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24h)} color="warning" />
+  </div>
+</div>
+{#if chart && config}
   <LineChartBg />
-  <EarningsChart {currency} />
+  <EarningsChart {chart} gradientStart={config.gradientStart} gradientEnd={config.gradientEnd} />
 {/if}
 
 <style>

@@ -6,21 +6,23 @@
   import { line, curveBasis } from 'd3-shape';
 
   // the props
-  export let currency;
+  export let chart;
   export let width;
   export let height;
+  export let gradientStart;
+  export let gradientEnd;
   export let strokeWidth;
   export let startOpacity = 1;
 
-  const { summary, config } = currency;
+  const { meta, points } = chart;
 
   // the scales
   const xScale = scaleLinear()
-    .domain(extent(currency.points.map(d => d.x)))
+    .domain(extent(points.map(d => d.x)))
     .range([0, 100]);
 
   const yScale = scaleLinear()
-    .domain(extent(currency.points.map(d => d.y)))
+    .domain(extent(points.map(d => d.y)))
     .range([100, 0]);
 
   // the path generator
@@ -38,16 +40,16 @@
 </script>
 
 <div class="chart" bind:this={wrapper} style="--length: {lineLength}; --width: {width}; --height: {height}; --strokeWidth: {strokeWidth}">
-  <Pancake.Chart x1={summary.start} x2={summary.end} y1={summary.min} y2={summary.max}>
+  <Pancake.Chart x1={meta.start} x2={meta.end} y1={meta.min} y2={meta.max}>
     <Pancake.Svg>
       <defs>
-        <linearGradient id={`linear-${config.gradientStart}-${config.gradientEnd}`} x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="0%"   stop-color={config.gradientStart} stop-opacity={startOpacity} />
-          <stop offset="100%" stop-color={config.gradientEnd} />
+        <linearGradient id={`linear-${gradientStart}-${gradientEnd}`} x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%"   stop-color={gradientStart} stop-opacity={startOpacity} />
+          <stop offset="100%" stop-color={gradientEnd} />
         </linearGradient>
       </defs>
-      <Pancake.SvgLine data={currency.points} let:d>
-        <path class="data" d={pathLine(currency.points)} stroke={`url(#linear-${config.gradientStart}-${config.gradientEnd})`} />
+      <Pancake.SvgLine data={points} let:d>
+        <path class="data" d={pathLine(points)} stroke={`url(#linear-${gradientStart}-${gradientEnd})`} />
       </Pancake.SvgLine>
     </Pancake.Svg>
   </Pancake.Chart>
