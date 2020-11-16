@@ -1,5 +1,5 @@
 <script>
-  import { PERCENTAGE_FORMATTER } from '../utils/formatters';
+  import f from '../stores/formatters';
 
   import RadialGraph from './graphs/RadialGraph.svelte';
 
@@ -29,10 +29,10 @@
       <div class="percentages">
         <div class="pct-1">
           <div class="label">{pct1label}</div>
-          <div class="value">{PERCENTAGE_FORMATTER.format(pct1)}</div>
+          <div class="value">{$f.formatPercentage(pct1)}</div>
         </div>
         <div class="pct-2">
-          <div class="value">{PERCENTAGE_FORMATTER.format(pct2)}</div>
+          <div class="value">{$f.formatPercentage(pct2)}</div>
           <div class="label">{pct2label}</div>
         </div>
       </div>

@@ -9,10 +9,12 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-replace": "^2.3.4",
     "@sveltejs/pancake": "0.0.17",
     "d3-array": "^2.8.0",
     "d3-scale": "^3.2.3",
     "d3-shape": "^2.0.0",
+    "dotenv": "^8.2.0",
     "rollup": "^2.33.1",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-postcss": "^3.1.8",

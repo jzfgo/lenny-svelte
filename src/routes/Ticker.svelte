@@ -1,17 +1,19 @@
 <script>
-  import { CURRENCY_FORMATTER } from '../utils/formatters';
-  import { data } from '../stores';
+  import f from '../stores/formatters';
+  import bot from '../stores/bot';
 
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
   import CurrencyDetails from "../components/CurrencyDetails.svelte";
   import CurrencyRate from "../components/CurrencyRate.svelte";
+  import ListItem from "../components/ListItem.svelte";
+  import LogSummary from "../components/LogSummary.svelte";
 
   export let params = {};
 
   let currency;
-  $: if ($data.currencies) {
-    currency = $data.currencies.get(params.ticker);
+  $: if ($bot.currencies) {
+    currency = $bot.currencies.get(params.ticker);
   }
 </script>
 
@@ -23,13 +25,13 @@
     <TotalEarnings config={currency.config} chart={currency.chart} summary={currency.summary} />
   </section>
 
-  {#if !currency.details.sameCurrency}
+  {#if currency.exchangeRate.price !== 1}
     <section class="exchange">
       <h2>Exchange rate</h2>
       <CurrencyRate
-        config={currency.config}
-        rate={0}
-        change24h={0}
+        icon={currency.config.icon}
+        rate={currency.exchangeRate.price}
+        change24h={currency.exchangeRate.change24h}
       />
     </section>
   {/if}
@@ -55,9 +57,9 @@
     <CurrencyDetails
       pct1={currency.details.yearlyRateCompound}
       pct2={currency.details.avgLendingRate}
-      value1={CURRENCY_FORMATTER.format(currency.summary.estEarningsYear)}
-      value2={CURRENCY_FORMATTER.format(currency.summary.estEarningsMonth)}
-      value3={CURRENCY_FORMATTER.format(currency.summary.estEarnings24h)}
+      value1={$f.formatCurrency(currency.summary.estEarningsYear)}
+      value2={$f.formatCurrency(currency.summary.estEarningsMonth)}
+      value3={$f.formatCurrency(currency.summary.estEarnings24h)}
       value1label="year"
       value2label="month"
       value3label="day"
@@ -67,6 +69,15 @@
       gradientEnd={currency.config.gradientEnd}
     />
   </section>
+{/if}
+
+{#if currency}
+<section class="module log">
+  <h2>Activity log</h2>
+  <ListItem link="/activity-log">
+    <LogSummary {...currency.log[0]} />
+  </ListItem>
+</section>
 {/if}
 
 <style>

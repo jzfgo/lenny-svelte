@@ -1,5 +1,5 @@
 <script>
-  import { CURRENCY_FORMATTER } from '../utils/formatters';
+  import f from '../stores/formatters';
   import { tweenFrom } from '../utils/tweens';
 
   import Indicator from "../components/Indicator.svelte";
@@ -29,20 +29,20 @@
 <div class="earnings">
   <div class="earnings-total">
     <span class="value">
-      {CURRENCY_FORMATTER.format($earningsTotal)}
+      {$f.formatCurrency($earningsTotal)}
     </span>
     <div class="label">
       <CornerBottomLeftIcon width="32" /> All Time <CornerBottomRightIcon width="32" />
     </div>
   </div>
   <div class="earnings-24h">
-    <Indicator size="regular" icon="piggy-bank" value={CURRENCY_FORMATTER.format($earningsToday)} color="success" />
+    <Indicator size="regular" icon="piggy-bank" value={$f.formatCurrency($earningsToday)} color="success" />
 
     <div class="label">
       <AngleLeftIcon width="32" /> 24h <AngleRightIcon width="32" />
     </div>
 
-    <Indicator size="regular" icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24h)} color="warning" />
+    <Indicator size="regular" icon="binoculars" value={$f.formatCurrency($estEarnings24h)} color="warning" />
   </div>
 </div>
 {#if chart && config}

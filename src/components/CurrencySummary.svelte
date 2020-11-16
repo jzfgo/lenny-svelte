@@ -1,5 +1,5 @@
 <script>
-  import { CURRENCY_FORMATTER } from '../utils/formatters';
+  import f from '../stores/formatters';
   import { tweenFrom } from '../utils/tweens';
 
   import Indicator from "../components/Indicator.svelte";
@@ -34,10 +34,10 @@
       <svelte:component this={icon} />
     </RadialGraph>
   </div>
-  <div class="earningsTotal">{CURRENCY_FORMATTER.format($earningsTotalTween)}</div>
+  <div class="earningsTotal">{$f.formatCurrency($earningsTotalTween)}</div>
   <div class="earnings24h">
-    <Indicator icon="piggy-bank" value={CURRENCY_FORMATTER.format($earningsTodayTween)} background={false} color="success" />
-    <Indicator icon="binoculars" value={CURRENCY_FORMATTER.format($estEarnings24hTween)} background={false} color="warning" />
+    <Indicator icon="piggy-bank" value={$f.formatCurrency($earningsTodayTween)} background={false} color="success" />
+    <Indicator icon="binoculars" value={$f.formatCurrency($estEarnings24hTween)} background={false} color="warning" />
   </div>
   <div class="line-chart">
     <LineChart {chart} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity="0" />

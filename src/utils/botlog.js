@@ -4,20 +4,29 @@ const getJSON = async () => {
   return data;
 };
 
-const processLog = (rawLog) =>
-  rawLog.reverse().map((item) => ({
+const processLog = (rawLog, filter) => {
+  const log = filter
+    ? rawLog.filter((item) => item.indexOf(` ${filter} `) !== -1)
+    : rawLog;
+
+  return log.reverse().map((item) => ({
     time: item.substr(0, 19),
     message: item.substr(20),
   }));
+};
 
-const processCurrency = ({
-  averageLendingRate: avgLendingRate = 0,
-  lentSum = 0,
-  maxToLend = 0,
-  todayEarnings: earningsToday = 0,
-  totalCoins = 0,
-  totalEarnings: earningsTotal = 0,
-}) => {
+const processCurrency = (
+  {
+    averageLendingRate: avgLendingRate = 0,
+    lentSum = 0,
+    maxToLend = 0,
+    todayEarnings: earningsToday = 0,
+    totalCoins = 0,
+    totalEarnings: earningsTotal = 0,
+  },
+  config,
+  exchangeRate
+) => {
   avgLendingRate = parseFloat(avgLendingRate) / 100;
   lentSum = parseFloat(lentSum);
   maxToLend = parseFloat(maxToLend);
@@ -28,13 +37,8 @@ const processCurrency = ({
   const effectiveRate = netRate * pctLent;
 
   return {
-    summary: {
-      earningsToday: parseFloat(earningsToday),
-      earningsTotal: parseFloat(earningsTotal),
-      estEarnings24h: lentSum * (1 + netRate) - lentSum,
-      estEarningsMonth: lentSum * Math.pow(1 + netRate, 30) - lentSum,
-      estEarningsYear: lentSum * Math.pow(1 + netRate, 365) - lentSum,
-    },
+    config,
+    exchangeRate,
     details: {
       avgLendingRate,
       lentSum,
@@ -43,18 +47,41 @@ const processCurrency = ({
       pctLentTotal: totalCoins ? lentSum / totalCoins : 0,
       totalCoins,
       yearlyRate: effectiveRate * 365,
-      yearlyRateCompound: (Math.pow(1 + netRate, 365) - 1) * pctLent, // with daily reinvestment,
+      yearlyRateCompound: (Math.pow(1 + netRate, 365) - 1) * pctLent, // with daily reinvestment
+    },
+    summary: {
+      earningsToday: parseFloat(earningsToday) * exchangeRate.price,
+      earningsTotal: parseFloat(earningsTotal) * exchangeRate.price,
+      estEarnings24h: (lentSum * (1 + netRate) - lentSum) * exchangeRate.price,
+      estEarningsMonth:
+        (lentSum * Math.pow(1 + netRate, 30) - lentSum) * exchangeRate.price,
+      estEarningsYear:
+        (lentSum * Math.pow(1 + netRate, 365) - lentSum) * exchangeRate.price,
     },
   };
 };
 
-const processCurrencies = (rawCurrencies) => {
+const processCurrencies = (
+  { raw_data: rawCurrencies, log: rawLog },
+  currenciesCfg,
+  exchangeRates
+) => {
   let currencies = new Map();
+  const tickers = Object.keys(rawCurrencies);
 
-  Object.keys(rawCurrencies).forEach((ticker) => {
-    let currency = processCurrency(rawCurrencies[ticker]);
-    currencies.set(ticker.toLowerCase(), currency);
+  tickers.forEach((tickerRaw) => {
+    const ticker = tickerRaw.toLowerCase();
+
+    let currency = processCurrency(
+      rawCurrencies[tickerRaw],
+      currenciesCfg.get(ticker),
+      exchangeRates.get(ticker)
+    );
+    currency.log = processLog(rawLog, tickerRaw);
+    currencies.set(ticker, currency);
   });
+
+  // TODO: Convert summary values to common currency before summing them
 
   const summary = Array.from(currencies.values())
     .map((ticker) => ticker.summary)
@@ -66,14 +93,13 @@ const processCurrencies = (rawCurrencies) => {
       estEarningsYear: acc.estEarningsYear + cur.estEarningsYear,
     }));
 
-  return { currencies, summary };
+  return { currencies, summary, log: processLog(rawLog) };
 };
 
-export default async () => {
-  const { raw_data: rawCurrencies, log: rawLog } = await getJSON();
+export default async (currenciesCfg, exchangeRates) => {
+  const botlog = await getJSON();
 
   return {
-    ...processCurrencies(rawCurrencies),
-    log: processLog(rawLog),
+    ...processCurrencies(botlog, currenciesCfg, exchangeRates),
   };
 };

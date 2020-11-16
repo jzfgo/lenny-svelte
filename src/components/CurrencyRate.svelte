@@ -1,10 +1,10 @@
 <script>
-  import { CURRENCY_FORMATTER, PERCENTAGE_FORMATTER } from '../utils/formatters';
+  import f from '../stores/formatters';
   import { tweenFrom } from '../utils/tweens';
 
-  export let config;
-  export let rate;
   export let change24h;
+  export let icon;
+  export let rate;
 
   const rateTween = tweenFrom(0);
   const change24hTween = tweenFrom(0);
@@ -17,12 +17,12 @@
 
 <div class="currency-rate">
   <div class="ticker">
-    <svelte:component this={config.icon}/>
+    <svelte:component this={icon}/>
   </div>
-  <div class="rate">{CURRENCY_FORMATTER.format($rateTween)}</div>
+  <div class="rate">{$f.formatCurrency($rateTween, { minimumFractionDigits: 0 })}</div>
   {#if change24h}
   <div class="change24h">
-    <span class="value">{PERCENTAGE_FORMATTER.format($change24hTween)}</span>
+    <span class="value">{$f.formatPercentage($change24hTween)}</span>
     <span class="label">24H</span>
   </div>
   {/if}

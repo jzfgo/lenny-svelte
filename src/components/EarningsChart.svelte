@@ -1,5 +1,5 @@
 <script>
-  import { DATE_FORMATTER } from '../utils/formatters';
+  import f from '../stores/formatters';
 
   import LineChart from "../components/LineChart.svelte";
   import Indicator from "../components/Indicator.svelte";
@@ -8,7 +8,7 @@
   export let gradientStart;
   export let gradientEnd;
 
-  let startDate = DATE_FORMATTER.format(new Date(chart.meta.start * 1000));
+  let startDate = $f.formatDate(new Date(chart.meta.start * 1000));
 </script>
 
 {#if chart}

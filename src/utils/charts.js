@@ -56,7 +56,7 @@ const processCurrency = (ticker, data) => {
   };
 };
 
-const processCurrencies = (data) => {
+const processCurrencies = (data, exchangeRates) => {
   let currencies = new Map();
   let chart = {
     meta: {
@@ -79,10 +79,10 @@ const processCurrencies = (data) => {
   return { chart, currencies };
 };
 
-export default async () => {
+export default async (currenciesCfg, exchangeRates) => {
   const history = await getJSON();
 
   return {
-    ...processCurrencies(history),
+    ...processCurrencies(history, currenciesCfg, exchangeRates),
   };
 };

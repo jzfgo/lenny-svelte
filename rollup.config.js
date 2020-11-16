@@ -1,9 +1,13 @@
-import svelte from 'rollup-plugin-svelte';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
-import svelteSVG from 'rollup-plugin-svelte-svg';
+import svelte from "rollup-plugin-svelte";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import livereload from "rollup-plugin-livereload";
+import { terser } from "rollup-plugin-terser";
+import svelteSVG from "rollup-plugin-svelte-svg";
+import { config } from "dotenv";
+import replace from "@rollup/plugin-replace";
+
+config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,34 +21,44 @@ function serve() {
   return {
     writeBundle() {
       if (server) return;
-      server = require('child_process').spawn('npm', ['run', 'start'], {
-        stdio: ['ignore', 'inherit', 'inherit'],
+      server = require("child_process").spawn("npm", ["run", "start"], {
+        stdio: ["ignore", "inherit", "inherit"],
         shell: true,
       });
 
-      process.on('SIGTERM', toExit);
-      process.on('exit', toExit);
+      process.on("SIGTERM", toExit);
+      process.on("exit", toExit);
     },
   };
 }
 
 export default {
-  input: 'src/main.js',
+  input: "src/main.js",
   output: {
     sourcemap: true,
-    format: 'iife',
-    name: 'app',
-    file: 'public/build/bundle.js',
+    format: "iife",
+    name: "app",
+    file: "public/build/bundle.js",
   },
   plugins: [
     svelteSVG(),
+    replace({
+      __myapp: JSON.stringify({
+        env: {
+          isProd: production,
+          BITFINEX_API_URL: production
+            ? process.env.BITFINEX_API_URL
+            : process.env.BITFINEX_API_URL_DEV,
+        },
+      }),
+    }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
       css: (css) => {
-        css.write('bundle.css');
+        css.write("bundle.css");
       },
     }),
 
@@ -55,7 +69,7 @@ export default {
     // https://github.com/rollup/plugins/tree/master/packages/commonjs
     resolve({
       browser: true,
-      dedupe: ['svelte'],
+      dedupe: ["svelte"],
     }),
     commonjs(),
 
@@ -65,7 +79,7 @@ export default {
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
-    !production && livereload('public'),
+    !production && livereload("public"),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify

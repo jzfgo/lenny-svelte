@@ -1,5 +1,5 @@
 <script>
-  import { data } from '../stores'
+  import bot from '../stores/bot'
 
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
@@ -21,17 +21,17 @@
 
 <TitleBar {...titleBarProps} />
 
-{#if $data.aggregate}
+{#if $bot.aggregate}
 <section class="summary">
   <h2>Total earnings</h2>
-  <TotalEarnings chart={$data.aggregate.chart} config={$data.aggregate.config} summary={$data.aggregate.summary} />
+  <TotalEarnings chart={$bot.aggregate.chart} config={$bot.aggregate.config} summary={$bot.aggregate.summary} />
 </section>
 {/if}
 
-{#if $data.currencies}
+{#if $bot.currencies}
 <section class="currencies">
   <h2>Earnings by currency</h2>
-  {#each Array.from($data.currencies) as [ticker, { chart, config, details: { pctLent }, summary }]}
+  {#each Array.from($bot.currencies) as [ticker, { chart, config, details: { pctLent }, summary }]}
   <ListItem link={`/currency/${ticker}`}>
     <CurrencySummary {chart} {config} {pctLent} {summary} />
   </ListItem>
@@ -39,11 +39,11 @@
 </section>
 {/if}
 
-{#if $data.aggregate}
+{#if $bot.aggregate}
 <section class="module log">
   <h2>Activity log</h2>
   <ListItem link="/activity-log">
-    <LogSummary {...$data.aggregate.log[0]} />
+    <LogSummary {...$bot.aggregate.log[0]} />
   </ListItem>
 </section>
 {/if}

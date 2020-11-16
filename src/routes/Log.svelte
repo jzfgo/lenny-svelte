@@ -1,5 +1,5 @@
 <script>
-  import { data } from '../stores'
+  import bot from '../stores/bot'
 
   import TitleBar from "../components/TitleBar.svelte";
   import LogItem from "../components/LogItem.svelte";
@@ -11,9 +11,9 @@
 </script>
 
 <TitleBar {...titleBarProps} />
-{#if $data.aggregate}
+{#if $bot.aggregate}
   <div class="log">
-    {#each $data.aggregate.log as logItem}
+    {#each $bot.aggregate.log as logItem}
       <LogItem {...logItem} />
     {:else}
       No activity.

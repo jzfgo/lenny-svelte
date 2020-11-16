@@ -2,11 +2,14 @@
   import * as timeago from 'timeago.js';
   import { onInterval } from '../utils'
 
-  export let time = 'just now';
+  export let time;
   export let message = 'No activity';
 
-  let timeFormatted = timeago.format(time);
-  onInterval(() => timeFormatted = timeago.format(time), 30000);
+  let timeFormatted = '';
+  if (time) {
+    timeFormatted = timeago.format(time);
+    onInterval(() => timeFormatted = timeago.format(time), 1000);
+  }
 </script>
 
 <div class="log-summary">
