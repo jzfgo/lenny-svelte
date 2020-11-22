@@ -13,7 +13,7 @@ const compileData = async (config, currenciesCfg) => {
     );
 
     const botData = await getBotData(currenciesCfg, exchangeRates);
-    const chartsData = await getChartsData(currenciesCfg, exchangeRates);
+    const chartsData = await getChartsData(exchangeRates);
 
     const currencies = new Map();
     botData.currencies.forEach((botlogCurrency, key) => {

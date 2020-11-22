@@ -70,6 +70,7 @@
     animation: progress var(--animationDuration) ease-out;
     stroke-dasharray: var(--length);
     stroke-dashoffset: 0;
+    stroke-linecap: round;
   }
 
   @keyframes progress {

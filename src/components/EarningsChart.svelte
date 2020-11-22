@@ -1,5 +1,6 @@
 <script>
   import f from '../stores/formatters';
+  import { tweenFrom } from '../utils/tweens';
 
   import LineChart from "../components/LineChart.svelte";
   import Indicator from "../components/Indicator.svelte";
@@ -9,6 +10,15 @@
   export let gradientEnd;
 
   let startDate = $f.formatDate(new Date(chart.meta.start * 1000));
+
+  const chartMin = tweenFrom(0);
+  const chartMax = tweenFrom(0);
+
+  $: if (chart?.meta) {
+    console.log(chart.meta);
+    chartMin.set(chart.meta.min);
+    chartMax.set(chart.meta.max);
+  }
 </script>
 
 {#if chart}
@@ -18,8 +28,8 @@
       <Indicator icon="arrow-to-left" value={startDate} color="muted" />
 
       <div class="minmax">
-        <Indicator icon="arrow-to-bottom" value={chart.meta.min} color="error" />
-        <Indicator icon="arrow-to-top" value={chart.meta.max} color="success" />
+        <Indicator icon="arrow-to-bottom" value={$f.formatCurrency($chartMin)} color="error" />
+        <Indicator icon="arrow-to-top" value={$f.formatCurrency($chartMax)} color="success" />
       </div>
     </div>
   </div>

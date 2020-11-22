@@ -81,8 +81,6 @@ const processCurrencies = (
     currencies.set(ticker, currency);
   });
 
-  // TODO: Convert summary values to common currency before summing them
-
   const summary = Array.from(currencies.values())
     .map((ticker) => ticker.summary)
     .reduce((acc, cur) => ({
