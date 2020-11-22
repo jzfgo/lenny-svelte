@@ -13,6 +13,7 @@
   export let gradientEnd;
   export let strokeWidth;
   export let startOpacity = 1;
+  export let animationDuration = '1s';
 
   const { meta, points } = chart;
 
@@ -39,7 +40,7 @@
   });
 </script>
 
-<div class="chart" bind:this={wrapper} style="--length: {lineLength}; --width: {width}; --height: {height}; --strokeWidth: {strokeWidth}">
+<div class="chart" bind:this={wrapper} style="--length: {lineLength}; --width: {width}; --height: {height}; --strokeWidth: {strokeWidth}; --animationDuration: {animationDuration}">
   <Pancake.Chart x1={meta.start} x2={meta.end} y1={meta.min} y2={meta.max}>
     <Pancake.Svg>
       <defs>
@@ -66,7 +67,7 @@
   path.data {
     fill: none;
     stroke-width: var(--strokeWidth);
-    animation: progress 1s;
+    animation: progress var(--animationDuration) ease-out;
     stroke-dasharray: var(--length);
     stroke-dashoffset: 0;
   }
