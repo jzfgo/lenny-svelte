@@ -31,10 +31,12 @@
 {#if $bot.currencies}
 <section class="currencies">
   <h2>Earnings by currency</h2>
-  {#each Array.from($bot.currencies) as [ticker, { chart, config, details: { pctLent }, summary }]}
-  <ListItem link={`/currency/${ticker}`}>
-    <CurrencySummary {chart} {config} {pctLent} {summary} />
-  </ListItem>
+  {#each Array.from($bot.currencies) as [ticker, { chart, config, details: { pctLent, maxToLend }, summary }]}
+    {#if maxToLend > 0}
+      <ListItem link={`/currency/${ticker}`}>
+        <CurrencySummary {chart} {config} {pctLent} {summary} />
+      </ListItem>
+    {/if}
   {/each}
 </section>
 {/if}

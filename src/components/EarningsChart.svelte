@@ -13,7 +13,7 @@
 
 {#if chart}
   <div class="line-chart">
-    <LineChart {chart} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" animationDuration="1.5s" />
+    <LineChart {chart} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" />
     <div class="metadata">
       <Indicator icon="arrow-to-left" value={startDate} color="muted" />
 
