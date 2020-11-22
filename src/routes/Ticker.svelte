@@ -74,7 +74,7 @@
 {#if currency}
 <section class="module log">
   <h2>Activity log</h2>
-  <ListItem link="/activity-log">
+  <ListItem link={`/activity-log/${params.ticker}`}>
     <LogSummary {...currency.log[0]} />
   </ListItem>
 </section>

@@ -2,7 +2,7 @@
   import * as timeago from 'timeago.js';
   import { onInterval } from '../utils'
 
-  export let time;
+  export let time = '';
   export let message = 'No activity';
 
   let timeFormatted = '';

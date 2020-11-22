@@ -4,16 +4,22 @@
   import TitleBar from "../components/TitleBar.svelte";
   import LogItem from "../components/LogItem.svelte";
 
+  export let params = {};
+
   const titleBarProps = {
     title: 'Activity Log',
   };
 
+  let log = [];
+  $: if ($bot.currencies) {
+    log = params?.ticker ? $bot.currencies.get(params.ticker).log : $bot.aggregate.log;
+  }
 </script>
 
 <TitleBar {...titleBarProps} />
-{#if $bot.aggregate}
+{#if log}
   <div class="log">
-    {#each $bot.aggregate.log as logItem}
+    {#each log as logItem}
       <LogItem {...logItem} />
     {:else}
       No activity.
