@@ -49,6 +49,9 @@ export default {
           BITFINEX_API_URL: production
             ? process.env.BITFINEX_API_URL
             : process.env.BITFINEX_API_URL_DEV,
+          REFRESH_INTERVAL: production
+            ? process.env.REFRESH_INTERVAL
+            : process.env.REFRESH_INTERVAL_DEV,
         },
       }),
     }),
