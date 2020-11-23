@@ -1,17 +1,11 @@
 <script>
-  import f from '../stores/formatters';
-  import { tweenFrom } from '../utils/tweens';
-
   export let change24h;
   export let icon;
   export let rate;
 
-  const rateTween = tweenFrom(0);
-  const change24hTween = tweenFrom(0);
-
+  let loss = false;
   $: {
-    rateTween.set(rate);
-    change24hTween.set(change24h);
+    loss = change24h < 0;
   }
 </script>
 
@@ -19,10 +13,10 @@
   <div class="ticker">
     <svelte:component this={icon}/>
   </div>
-  <div class="rate">{$f.formatCurrency($rateTween, { minimumFractionDigits: 0 })}</div>
+  <div class="rate">{rate}</div>
   {#if change24h}
   <div class="change24h">
-    <span class="value">{$f.formatPercentage($change24hTween)}</span>
+    <span class="value" class:loss>{change24h}</span>
     <span class="label">24H</span>
   </div>
   {/if}
@@ -57,13 +51,19 @@
     font-size: 0.75rem;
   }
 
+  .change24h .value {
+    color: var(--main-success-color);
+  }
+  .change24h .loss {
+    color: var(--main-error-color);
+  }
+
   .change24h .label {
     font-weight: 700;
     font-size: .75rem;
     color: var(--main-muted-color);
     text-align: right;
     text-transform: uppercase;
-
     margin-right: 1.5rem;
   }
 </style>

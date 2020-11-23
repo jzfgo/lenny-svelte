@@ -220,7 +220,7 @@ export default new Map([
   [
     "etc",
     {
-      name: "Ether classic",
+      name: "Ethereum classic",
       icon: EtcIcon,
       gradientStart: "#80ffea",
       gradientEnd: "#ffff80",
@@ -234,7 +234,7 @@ export default new Map([
   [
     "eth",
     {
-      name: "Ether",
+      name: "Ethereum",
       icon: EthIcon,
       gradientStart: "#80ffea",
       gradientEnd: "#8aff80",

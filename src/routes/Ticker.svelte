@@ -1,4 +1,6 @@
 <script>
+  import { tweenFrom } from '../utils/tweens';
+
   import f from '../stores/formatters';
   import bot from '../stores/bot';
 
@@ -11,10 +13,40 @@
 
   export let params = {};
 
+  const rateTween = tweenFrom(0);
+  const change24hTween = tweenFrom(0);
+
+  const pctLent = tweenFrom(0);
+  const pctLentTotal = tweenFrom(0);
+  const lentSum = tweenFrom(0);
+  const maxToLend = tweenFrom(0);
+  const totalCoins = tweenFrom(0);
+
+  const yearlyRateCompound = tweenFrom(0);
+  const avgLendingRate = tweenFrom(0);
+  const estEarningsYear = tweenFrom(0);
+  const estEarningsMonth = tweenFrom(0);
+  const estEarnings24h = tweenFrom(0);
+
   let currency;
   $: if ($bot.currencies) {
     currency = $bot.currencies.get(params.ticker);
-  }
+
+    rateTween.set(currency.exchangeRate.price);
+    change24hTween.set(currency.exchangeRate.change24h);
+
+    pctLent.set(currency.details.pctLent);
+    pctLentTotal.set(currency.details.pctLentTotal);
+    lentSum.set(currency.details.lentSum);
+    maxToLend.set(currency.details.maxToLend);
+    totalCoins.set(currency.details.totalCoins);
+
+    yearlyRateCompound.set(currency.details.yearlyRateCompound);
+    avgLendingRate.set(currency.details.avgLendingRate);
+    estEarningsYear.set(currency.summary.estEarningsYear);
+    estEarningsMonth.set(currency.summary.estEarningsMonth);
+    estEarnings24h.set(currency.summary.estEarnings24h);
+}
 </script>
 
 {#if currency}
@@ -30,8 +62,8 @@
       <h2>Exchange rate</h2>
       <CurrencyRate
         icon={currency.config.icon}
-        rate={currency.exchangeRate.price}
-        change24h={currency.exchangeRate.change24h}
+        rate={$f.formatCurrency($rateTween, { minimumFractionDigits: 2 })}
+        change24h={$f.formatPercentage($change24hTween, { signDisplay: "always" })}
       />
     </section>
   {/if}
@@ -39,11 +71,11 @@
   <section class="lent">
     <h2>Amount Lent</h2>
     <CurrencyDetails
-      pct1={currency.details.pctLent}
-      pct2={currency.details.pctLentTotal}
-      value1={currency.details.lentSum}
-      value2={currency.details.maxToLend}
-      value3={currency.details.totalCoins}
+      pct1={$pctLent}
+      pct2={$pctLentTotal}
+      value1={$f.formatDecimal($lentSum, { minimumFractionDigits:2, maximumFractionDigits: 4 })}
+      value2={$f.formatDecimal($maxToLend, { minimumFractionDigits:2, maximumFractionDigits: 4 })}
+      value3={$f.formatDecimal($totalCoins, { minimumFractionDigits:2, maximumFractionDigits: 4 })}
       value1label="lent"
       value2label="lendable"
       value3label="total"
@@ -55,11 +87,11 @@
   <section class="estimation">
     <h2>Estimated earnings</h2>
     <CurrencyDetails
-      pct1={currency.details.yearlyRateCompound}
-      pct2={currency.details.avgLendingRate}
-      value1={$f.formatCurrency(currency.summary.estEarningsYear)}
-      value2={$f.formatCurrency(currency.summary.estEarningsMonth)}
-      value3={$f.formatCurrency(currency.summary.estEarnings24h)}
+      pct1={$yearlyRateCompound}
+      pct2={$avgLendingRate}
+      value1={$f.formatCurrency($estEarningsYear)}
+      value2={$f.formatCurrency($estEarningsMonth)}
+      value3={$f.formatCurrency($estEarnings24h)}
       value1label="year"
       value2label="month"
       value3label="day"

@@ -24,6 +24,17 @@ export default derived(
         }).format(value);
       },
 
+      formatDecimal: (value, options = {}) => {
+        const defaults = {
+          style: "decimal",
+        };
+
+        return new Intl.NumberFormat("en", {
+          ...defaults,
+          ...options,
+        }).format(value);
+      },
+
       formatPercentage: (value, options = {}) => {
         const defaults = {
           style: "percent",
