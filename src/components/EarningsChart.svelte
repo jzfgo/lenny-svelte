@@ -9,8 +9,6 @@
   export let gradientStart;
   export let gradientEnd;
 
-  let startDate = $f.formatDate(new Date(chart.meta.start * 1000));
-
   const chartMin = tweenFrom(0);
   const chartMax = tweenFrom(0);
 
@@ -24,7 +22,7 @@
   <div class="line-chart">
     <LineChart {chart} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" />
     <div class="metadata">
-      <Indicator icon="arrow-to-left" value={startDate} color="muted" />
+      <Indicator icon="arrow-to-left" value={$f.formatDate(chart.meta.startDate)} color="muted" />
 
       <div class="minmax">
         <Indicator icon="arrow-to-bottom" value={$f.formatCurrency($chartMin)} color="error" />

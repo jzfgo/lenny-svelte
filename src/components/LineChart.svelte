@@ -41,7 +41,7 @@
 </script>
 
 <div class="chart" bind:this={wrapper} style="--length: {lineLength}; --width: {width}; --height: {height}; --strokeWidth: {strokeWidth}; --animationDuration: {animationDuration}">
-  <Pancake.Chart x1={meta.start} x2={meta.end} y1={meta.min} y2={meta.max}>
+  <Pancake.Chart>
     <Pancake.Svg>
       <defs>
         <linearGradient id={`linear-${gradientStart}-${gradientEnd}`} x1="0%" y1="50%" x2="100%" y2="50%">

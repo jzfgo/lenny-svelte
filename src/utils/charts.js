@@ -1,58 +1,46 @@
-const getJSON = async () => {
-  let res = await fetch(`/history.json?${Date.now()}`);
-  let data = await res.json();
-  return data;
+const getChartMeta = (points) => {
+  const psX = points.map((p) => p.x);
+  const psY = points.map((p) => p.y);
+
+  return {
+    min: Math.min(...psY),
+    max: Math.max(...psY),
+    startDate: new Date(psX[0] * 1000),
+  };
 };
 
-const processChart = (rawPoints, exchangeRate) => {
-  const points = [];
-  const CHART_DAYS = 30;
-  const DAY_LENGTH = -86400;
-  const LAST_DATE = new Date().setUTCHours(0, 0, 0, 0) / 1000;
+const processChart = (rawPoints, config, exchangeRate) => {
+  const CHART_DAYS = config.chartDays ?? 30;
+  const DAY_LENGTH = 86400;
+  let d = new Date();
+  d.setUTCHours(0, 0, 0, 0);
+  d.setUTCDate(d.getUTCDate() - CHART_DAYS);
+  const FIRST_DATE = d / 1000;
 
-  // Get the last points
-  const slicedPoints = rawPoints.slice(-CHART_DAYS);
-
-  // create a range of empty points
-  // (to fill the gaps in the previous one)
+  // Create a range of empty points
   const emptyPoints = [...Array(CHART_DAYS)].map((_, i) => [
-    LAST_DATE + i * DAY_LENGTH,
+    FIRST_DATE + DAY_LENGTH * i,
     0,
   ]);
 
-  const mergedMap = new Map([
-    ...new Map(emptyPoints),
-    ...new Map(slicedPoints),
-  ]);
-  const mergedPoints = Array.from(mergedMap);
-  mergedPoints.sort((a, b) => a[0] - b[0]);
-  const slicedMergedPoints = mergedPoints.slice(-CHART_DAYS);
+  // Get a subset of the current data points
+  const slicedPoints = rawPoints.filter((point) => point[0] >= FIRST_DATE);
 
-  slicedMergedPoints.forEach((point) => {
-    points.push({
+  // Merge the two arrays (removing duplicates)
+  // and format it for Pancake charts
+  const points = Array.from(new Map([...emptyPoints, ...slicedPoints])).map(
+    (point) => ({
       x: point[0],
       y: point[1] * exchangeRate.price,
-    });
-  });
+    })
+  );
 
-  const meta = {
-    min: Math.min.apply(
-      Math,
-      slicedMergedPoints.map((o) => o[1] * exchangeRate.price)
-    ),
-    max: Math.max.apply(
-      Math,
-      slicedMergedPoints.map((o) => o[1] * exchangeRate.price)
-    ),
-    start: slicedMergedPoints[0][0],
-    end: slicedMergedPoints[slicedMergedPoints.length - 1][0],
-    count: slicedMergedPoints.length,
-  };
+  const meta = getChartMeta(points);
 
   return { meta, points };
 };
 
-const processCharts = (data, exchangeRates) => {
+const processCharts = (data, config, exchangeRates) => {
   let currencies = new Map();
   const tickers = Object.keys(data);
 
@@ -60,43 +48,40 @@ const processCharts = (data, exchangeRates) => {
     const ticker = tickerRaw.toLowerCase();
 
     currencies.set(ticker, {
-      chart: processChart(data[tickerRaw], exchangeRates.get(ticker)),
+      chart: processChart(data[tickerRaw], config, exchangeRates.get(ticker)),
     });
   });
 
-  const chart = {
-    points: Array.from(currencies.values())
-      .map(({ chart: { points } }) => points)
-      .reduce((acc, cur) =>
-        acc.map(({ x, y }, i) => ({
-          x,
-          y: y + cur[i].y,
-        }))
-      ),
-    get meta() {
-      return {
-        min: Math.min.apply(
-          Math,
-          this.points.map((o) => o.y)
-        ),
-        max: Math.max.apply(
-          Math,
-          this.points.map((o) => o.y)
-        ),
-        start: this.points[0].x,
-        end: this.points[this.points.length - 1].x,
-        count: this.points.length,
-      };
-    },
-  };
+  // Summary chart
+  const points = Array.from(currencies.values())
+    .map(({ chart: { points } }) => points)
+    .reduce((acc, cur) =>
+      acc.map(({ x, y }) => {
+        // Find the same point in the current array
+        // or generate an empty point if not present
+        let [point] = cur.filter((p) => p.x === x);
+        point = point ?? { x, y: 0 };
 
-  return { chart, currencies };
+        return {
+          x,
+          y: y + point.y,
+        };
+      })
+    );
+
+  const meta = getChartMeta(points);
+
+  return { chart: { meta, points }, currencies };
 };
 
-export default async (exchangeRates) => {
-  const history = await getJSON();
-
-  return {
-    ...processCharts(history, exchangeRates),
-  };
+export default async (config, exchangeRates) => {
+  try {
+    const res = await fetch(`/history.json?${Date.now()}`);
+    const history = await res.json();
+    return {
+      ...processCharts(history, config, exchangeRates),
+    };
+  } catch (err) {
+    console.error(err);
+  }
 };
