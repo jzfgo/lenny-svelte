@@ -2,11 +2,7 @@
   export let change24h;
   export let icon;
   export let rate;
-
-  let loss = false;
-  $: {
-    loss = change24h < 0;
-  }
+  export let loss = false;
 </script>
 
 <div class="currency-rate">

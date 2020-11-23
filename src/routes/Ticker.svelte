@@ -64,6 +64,7 @@
         icon={currency.config.icon}
         rate={$f.formatCurrency($rateTween, { minimumFractionDigits: 2 })}
         change24h={$f.formatPercentage($change24hTween, { signDisplay: "always" })}
+        loss={currency.exchangeRate.change24h < 0}
       />
     </section>
   {/if}
