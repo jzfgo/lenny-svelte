@@ -68,6 +68,7 @@
     fill: none;
     stroke-width: var(--strokeWidth);
     animation: progress var(--animationDuration) ease-out;
+    transition: stroke-dashoffset 1s ease-out;
     stroke-dasharray: var(--length);
     stroke-dashoffset: 0;
     stroke-linecap: round;

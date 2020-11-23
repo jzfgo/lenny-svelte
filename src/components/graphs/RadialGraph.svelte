@@ -53,6 +53,7 @@
 
   .progress {
     animation: progress 1s;
+    transition: stroke-dashoffset 1s ease-out;
     stroke-dasharray: var(--circ);
     stroke-dashoffset: var(--progress);
   }
