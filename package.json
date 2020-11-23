@@ -5,7 +5,8 @@
     "build": "npx rollup -c",
     "dev": "npx rollup -c -w",
     "start": "npx serve -n -l 5000 public",
-    "deploy": "sh -ac '. .env; scp -r public/build $DEPLOY_DESTINATION'"
+    "deploy": "sh -ac '. .env; scp -r public/build $DEPLOY_DESTINATION'",
+    "syncData": "sh -ac '. .env; scp $DEPLOY_DESTINATION/*.json public/'"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
