@@ -2,9 +2,9 @@ import { derived } from "svelte/store";
 
 import currenciesCfg from "../stores/currencies";
 import config from "../stores/config";
-import getExchangeRates from "../utils/bitfinex";
-import getChartsData from "../utils/charts";
-import getEarningsData from "../utils/earnings";
+import getExchangeRates from "../dataSources/bitfinex";
+import getChartsData from "../dataSources/charts";
+import getEarningsData from "../dataSources/earnings";
 
 const compileData = async (config, currenciesCfg) => {
   try {

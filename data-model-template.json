@@ -17,8 +17,7 @@
       "meta": {
         "min": 0,
         "max": 0,
-        "start": 0,
-        "end": 0,
+        "startDate": "[object Date]"
       },
       "points": []
     },
@@ -35,7 +34,7 @@
         "time": "2020-11-11 21:19:58",
         "message": ""
       }
-    ],
+    ]
   },
   "currencies": {
     "btc": {
@@ -43,8 +42,7 @@
         "meta": {
           "min": 0,
           "max": 0,
-          "start": 0,
-          "end": 0,
+          "startDate": "[object Date]"
         },
         "points": []
       },
