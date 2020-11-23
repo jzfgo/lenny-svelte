@@ -15,7 +15,6 @@
   const chartMax = tweenFrom(0);
 
   $: if (chart?.meta) {
-    console.log(chart.meta);
     chartMin.set(chart.meta.min);
     chartMax.set(chart.meta.max);
   }
