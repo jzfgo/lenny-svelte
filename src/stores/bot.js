@@ -1,9 +1,10 @@
 import { derived } from "svelte/store";
+
 import currenciesCfg from "../stores/currencies";
 import config from "../stores/config";
-import getBotData from "../utils/botlog";
-import getChartsData from "../utils/charts";
 import getExchangeRates from "../utils/bitfinex";
+import getChartsData from "../utils/charts";
+import getEarningsData from "../utils/earnings";
 
 const compileData = async (config, currenciesCfg) => {
   try {
@@ -12,8 +13,8 @@ const compileData = async (config, currenciesCfg) => {
       config.displayCurrency
     );
 
-    const botData = await getBotData(currenciesCfg, exchangeRates);
-    const chartsData = await getChartsData(exchangeRates);
+    const botData = await getEarningsData(currenciesCfg, exchangeRates);
+    const chartsData = await getChartsData(config, exchangeRates);
 
     const currencies = new Map();
     botData.currencies.forEach((botlogCurrency, key) => {
