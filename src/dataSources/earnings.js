@@ -31,10 +31,16 @@ const processCurrency = (
   lentSum = parseFloat(lentSum);
   maxToLend = parseFloat(maxToLend);
   totalCoins = parseFloat(totalCoins);
+  earningsToday = parseFloat(earningsToday);
+  earningsTotal = parseFloat(earningsTotal);
 
   const netRate = avgLendingRate * 0.85;
   const pctLent = maxToLend ? lentSum / maxToLend : 0;
   const effectiveRate = netRate * pctLent;
+
+  const estEarnings24h = lentSum * (1 + netRate) - lentSum;
+  const estEarningsMonth = lentSum * Math.pow(1 + netRate, 30) - lentSum;
+  const estEarningsYear = lentSum * Math.pow(1 + netRate, 365) - lentSum;
 
   return {
     config,
@@ -48,15 +54,18 @@ const processCurrency = (
       totalCoins,
       yearlyRate: effectiveRate * 365,
       yearlyRateCompound: (Math.pow(1 + netRate, 365) - 1) * pctLent, // with daily reinvestment
+      earningsToday,
+      earningsTotal,
+      estEarnings24h,
+      estEarningsMonth,
+      estEarningsYear,
     },
     summary: {
-      earningsToday: parseFloat(earningsToday) * exchangeRate.price,
-      earningsTotal: parseFloat(earningsTotal) * exchangeRate.price,
-      estEarnings24h: (lentSum * (1 + netRate) - lentSum) * exchangeRate.price,
-      estEarningsMonth:
-        (lentSum * Math.pow(1 + netRate, 30) - lentSum) * exchangeRate.price,
-      estEarningsYear:
-        (lentSum * Math.pow(1 + netRate, 365) - lentSum) * exchangeRate.price,
+      earningsToday: earningsToday * exchangeRate.price,
+      earningsTotal: earningsTotal * exchangeRate.price,
+      estEarnings24h: estEarnings24h * exchangeRate.price,
+      estEarningsMonth: estEarningsMonth * exchangeRate.price,
+      estEarningsYear: estEarningsYear * exchangeRate.price,
     },
   };
 };

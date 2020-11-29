@@ -3,10 +3,10 @@
 
   import RadialGraph from './graphs/RadialGraph.svelte';
 
-  export let pct1 = 0;
+  export let pct1 = 0.0;
   export let pct1label = ' ';
 
-  export let pct2 = 0;
+  export let pct2 = 0.0;
   export let pct2label = ' ';
 
   export let value1 = 0.0;
@@ -21,9 +21,21 @@
   export let gradientStart;
   export let gradientEnd;
 
+  export let altValues = {};
+
+  let showAlt = false;
+
+  let value1show = value1;
+  let value2show = value2;
+  let value3show = value3;
+  $: {
+    value1show = showAlt ? (altValues?.value1 ?? value1) : value1;
+    value2show = showAlt ? (altValues?.value2 ?? value2) : value2;
+    value3show = showAlt ? (altValues?.value3 ?? value3) : value3;
+  }
 </script>
 
-<div class="currency-details">
+<div class="currency-details" on:click={() => showAlt = !showAlt}>
   <div class="graph">
     <RadialGraph radius="48" pct={pct1} {gradientStart} {gradientEnd}>
       <div class="percentages">
@@ -40,15 +52,15 @@
   </div>
   <div class="data">
     <div class="value-1 value">
-      <span class="value">{value1}</span>
+      <span class="value">{value1show}</span>
       <span class="label">{value1label}</span>
     </div>
     <div class="value-2 value">
-      <span class="value">{value2}</span>
+      <span class="value">{value2show}</span>
       <span class="label">{value2label}</span>
     </div>
     <div class="value-3 value">
-      <span class="value">{value3}</span>
+      <span class="value">{value3show}</span>
       <span class="label">{value3label}</span>
     </div>
   </div>

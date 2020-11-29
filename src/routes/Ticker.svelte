@@ -100,6 +100,10 @@
       pct2label="EDR"
       gradientStart={currency.config.gradientStart}
       gradientEnd={currency.config.gradientEnd}
+      altValues={{
+        value1: $f.formatDecimal(currency.details.estEarningsYear, { minimumFractionDigits:2, maximumFractionDigits: 4 }),
+        value2: $f.formatDecimal(currency.details.estEarningsMonth, { minimumFractionDigits:2, maximumFractionDigits: 4 }),
+        value3: $f.formatDecimal(currency.details.estEarnings24h, { minimumFractionDigits:2, maximumFractionDigits: 4 })}}
     />
   </section>
 {/if}
