@@ -1,0 +1,52 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient-blue-green" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#80ffea" />
+      <stop offset="1" stop-color="#8aff80" />
+    </linearGradient>
+    <linearGradient id="gradient-blue-yellow" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#80ffea" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+    <linearGradient id="gradient-green-yellow" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#8aff80" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+    <linearGradient id="gradient-orange-yellow" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ffca80" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+    <linearGradient id="gradient-pink-yellow" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff80bf" />
+      <stop offset="1" stop-color="#ffff80" />
+    </linearGradient>
+    <linearGradient id="gradient-purple-blue" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#9580ff" />
+      <stop offset="1" stop-color="#80ffea" />
+    </linearGradient>
+    <linearGradient id="gradient-purple-green" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#9580ff" />
+      <stop offset="1" stop-color="#8aff80" />
+    </linearGradient>
+    <linearGradient id="gradient-purple-orange" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#9580ff" />
+      <stop offset="1" stop-color="#ffca80" />
+    </linearGradient>
+    <linearGradient id="gradient-red-blue" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff9580" />
+      <stop offset="1" stop-color="#80ffea" />
+    </linearGradient>
+    <linearGradient id="gradient-red-green" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff9580" />
+      <stop offset="1" stop-color="#8aff80" />
+    </linearGradient>
+    <linearGradient id="gradient-red-orange" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff9580" />
+      <stop offset="1" stop-color="#ffca80" />
+    </linearGradient>
+    <linearGradient id="gradient-red-purple" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0" stop-color="#ff9580" />
+      <stop offset="1" stop-color="#9580ff" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,10 +1,4 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient id="gradient-gbp" x1="0%" x2="100%" y1="100%" y2="0%">
-      <stop offset="0" stop-color="#ff9580" />
-      <stop offset="1" stop-color="#9580ff" />
-    </linearGradient>
-  </defs>
-  <path fill="url(#gradient-gbp)" fill-rule="evenodd"
+  <path fill="url(#gradient-red-purple)" fill-rule="evenodd"
     d="m20.26 22v-3.96h-1.674l-.414 1.854h-3.348c.444-.396.666-1.026.666-1.89 0-.48-.03-1.068-.09-1.764h2.448v-1.98h-2.592c-.024-.48-.036-.858-.036-1.134v-.342c0-1.056.492-1.584 1.476-1.584.576 0 1.086.036 1.53.108l.36 1.332h1.62v-2.916l-.45-.162c-.288-.108-.75-.213-1.386-.315s-1.296-.153-1.98-.153c-1.308 0-2.274.327-2.898.981s-.936 1.569-.936 2.745c0 .492.018.99.054 1.494l-1.53.252v1.674h1.656c.06 1.236.09 1.914.09 2.034 0 .588-.054 1.011-.162 1.269s-.336.447-.684.567l-.9.324v1.566z" />
 </svg>
