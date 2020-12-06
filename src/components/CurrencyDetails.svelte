@@ -91,7 +91,7 @@
   .percentages .label {
     font-weight: 700;
     font-size: 0.625rem;
-    color: var(--main-muted-color);
+    color: var(--color-foreground-darker);
     text-transform: uppercase;
   }
 
@@ -105,7 +105,7 @@
 
   .pct-2 .value {
     font-size: .75rem;
-    color: var(--main-muted-color);
+    color: var(--color-foreground-darker);
   }
 
   .pct-2 .label {
@@ -133,7 +133,7 @@
   .data .label {
     font-weight: 700;
     font-size: .75rem;
-    color: var(--main-muted-color);
+    color: var(--color-foreground-darker);
     text-align: right;
     text-transform: uppercase;
   }

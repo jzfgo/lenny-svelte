@@ -30,6 +30,6 @@
 <style>
 .log {
   padding: 20px 15px;
-  background-color: var(--color-woodsmoke);
+  background-color: var(--color-background-darker);
 }
 </style>

@@ -20,7 +20,7 @@
 <style>
   .log-summary {
     opacity: 0.3;
-    color: var(--color-spring-wood);
+    color: var(--color-foreground);
     font-size: 0.875rem;
 
     display: grid;

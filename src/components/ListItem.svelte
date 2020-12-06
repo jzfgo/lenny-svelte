@@ -24,6 +24,6 @@
     margin: 0.625rem 0.9375rem;
     cursor: pointer;
 
-    fill: var(--main-muted-color);
+    fill: var(--color-foreground-darker);
   }
 </style>

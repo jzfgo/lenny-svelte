@@ -24,7 +24,7 @@
     border-radius: 0.3125rem;
     cursor: pointer;
 
-    fill: var(--main-muted-color);
+    fill: var(--color-muted);
   }
 
   .value {
@@ -63,18 +63,18 @@
   }
 
   .indicator--success .value {
-    color: var(--main-success-color);
+    color: var(--color-success);
   }
 
   .indicator--warning .value {
-    color: var(--main-warning-color);
+    color: var(--color-warning);
   }
 
   .indicator--error .value {
-    color: var(--main-error-color);
+    color: var(--color-error);
   }
 
   .indicator--muted .value {
-    color: var(--main-muted-color);
+    color: var(--color-foreground-darker);
   }
 </style>

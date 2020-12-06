@@ -119,7 +119,7 @@
 
 <style>
   :global(main) {
-    background-color: var(--color-charade);
+    background-color: var(--color-background);
   }
 
   section {

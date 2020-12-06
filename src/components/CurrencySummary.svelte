@@ -59,7 +59,7 @@
     font-weight: 400;
     line-height: 3rem;
     font-size: 1.5rem;
-    color: var(--color-spring-wood);
+    color: var(--color-foreground);
   }
 
   .line-chart {

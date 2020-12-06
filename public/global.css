@@ -1,26 +1,48 @@
 :root {
-  --color-vivid-tangerine: #ff9580;
-  --color-spring-wood: #f8f8f2;
-  --color-mint-green: #8aff80;
-  --color-kimberly: #7970a9;
-  --color-hot-pink: #ff80bf;
-  --color-heliotrope: #9580ff;
-  --color-gun-powder: #454158;
-  --color-dolly: #ffff80;
-  --color-chardonnay: #ffca80;
-  --color-charade: #22212c;
-  --color-aquamarine: #80ffea;
-  --color-woodsmoke: #17171e;
+  /* Theme: Blade */
+  --color-background: #212c2a;
+  --color-background-darker: #171e1d;
+  --color-foreground-darker: #70a99f;
+  --color-muted: #415854;
 
-  --main-bg-color: var(--color-woodsmoke);
-  --main-fg-color: var(--color-spring-wood);
-  --main-heading-color: var(--color-gun-powder);
+  /* Theme: Buffy */
+  --color-background: #2a212c;
+  --color-background-darker: #1d171e;
+  --color-foreground-darker: #9f70a9;
+  --color-muted: #544158;
 
-  --main-success-color: var(--color-mint-green);
-  --main-warning-color: var(--color-dolly);
-  --main-error-color: var(--color-hot-pink);
-  --main-info-color: var(--color-aquamarine);
-  --main-muted-color: var(--color-gun-powder);
+  /* Theme: Lincoln */
+  --color-background: #2c2a21;
+  --color-background-darker: #1e1d17;
+  --color-foreground-darker: #a99f70;
+  --color-muted: #585441;
+
+  /* Theme: Morbius */
+  --color-background: #2c2122;
+  --color-background-darker: #1e1717;
+  --color-foreground-darker: #a97079;
+  --color-muted: #a97079;
+
+  /* Theme: Van Helsing */
+  --color-background: #0b0d0f;
+  --color-background-darker: #07090a;
+  --color-foreground-darker: #708ca9;
+  --color-muted: #708ca9;
+
+  /* Theme: Default */
+  --color-background: #22212c;
+  --color-background-darker: #17171e;
+  --color-foreground-darker: #7970a9;
+  --color-muted: #454158;
+
+  --color-accent: #ff9580;
+  --color-error: #ff80bf;
+  --color-foreground: #f8f8f2;
+  --color-info: #80ffea;
+  --color-info-alt: #9580ff;
+  --color-success: #8aff80;
+  --color-warning: #ffca80;
+  --color-warning-alt: #ffff80;
 }
 
 *,
@@ -35,8 +57,8 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--main-bg-color);
-  color: var(--main-fg-color);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: Nunito, sans-serif;
 
   -webkit-user-select: none;
@@ -51,7 +73,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--main-heading-color);
+  color: var(--color-foreground-darker);
 }
 
 main {

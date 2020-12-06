@@ -48,16 +48,16 @@
   }
 
   .change24h .value {
-    color: var(--main-success-color);
+    color: var(--color-success);
   }
   .change24h .loss {
-    color: var(--main-error-color);
+    color: var(--color-error);
   }
 
   .change24h .label {
     font-weight: 700;
     font-size: .75rem;
-    color: var(--main-muted-color);
+    color: var(--color-foreground-darker);
     text-align: right;
     text-transform: uppercase;
     margin-right: 1.5rem;

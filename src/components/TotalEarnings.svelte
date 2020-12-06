@@ -60,7 +60,7 @@
   }
 
   .earnings-total .value {
-    color: var(--main-fg-color);
+    color: var(--color-foreground);
     letter-spacing: 0;
     font-weight: 400;
     font-size: 3rem;
@@ -83,8 +83,8 @@
     font-size: 0.75rem;
     text-align: center;
     text-transform: uppercase;
-    color: var(--main-muted-color);
-    fill: var(--main-muted-color);
+    color: var(--color-foreground-darker);
+    fill: var(--color-foreground-darker);
   }
 
   :global(#line-chart-bg) {

@@ -22,11 +22,11 @@
     font-weight: 700;
     text-align: center;
     border-radius: 0.1875rem;
-    background-color: var(--color-charade);
-    color: var(--color-vivid-tangerine);
+    background-color: var(--color-background);
+    color: var(--color-accent);
   }
 
   .message {
-    color: var(--color-spring-wood);
+    color: var(--color-foreground);
   }
 </style>

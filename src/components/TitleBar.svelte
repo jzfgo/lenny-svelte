@@ -33,7 +33,7 @@
   .title-bar {
     height: 3.75rem;
     padding: 0.625rem;
-    background-color: var(--color-charade);
+    background-color: var(--color-background);
 
     display: grid;
     grid-template-columns: 2.5rem 1fr 2.5rem;
@@ -43,7 +43,7 @@
     right: 0;
     left: 0;
 
-    fill: var(--color-vivid-tangerine);
+    fill: var(--color-accent);
     z-index: 1000;
   }
 
@@ -52,7 +52,7 @@
     font-weight: 600;
     line-height: 2.5rem;
     text-align: center;
-    color: var(--main-fg-color);
+    color: var(--color-foreground);
     margin: 0;
 
   }

@@ -1,48 +1,45 @@
 <svg id="line-chart-bg" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
-      <stop stop-color="#17171E" stop-opacity="0" offset="0%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.0196078431" offset="1.854956268%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.062745098" offset="3.50087464%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.125490196" offset="4.97361516%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.203921569" offset="6.3090379%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.294117647" offset="7.54300292%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.392156863" offset="8.71137026%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.494117647" offset="9.85%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.596078431" offset="10.99475218%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.694117647" offset="12.18148688%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.784313725" offset="13.44606414%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.866666667" offset="14.82434402%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.929411765" offset="16.35218658%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.976470588" offset="18.0654519%"></stop>
-      <stop stop-color="#17171E" offset="20%"></stop>
-      <stop stop-color="#17171E" offset="80%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.976470588" offset="81.854956268%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.929411765" offset="83.50087464%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.866666667" offset="84.97361516%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.784313725" offset="86.3090379%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.694117647" offset="87.54300292%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.596078431" offset="88.71137026%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.494117647" offset="89.85%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.392156863" offset="90.99475218%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.294117647" offset="92.18148688%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.203921569" offset="93.44606414%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.125490196" offset="94.82434402%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.062745098" offset="96.35218658%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0.0196078431" offset="98.0654519%"></stop>
-      <stop stop-color="#17171E" stop-opacity="0" offset="100%"></stop>
+      <stop stop-color="#000" stop-opacity="0" offset="0%"></stop>
+      <stop stop-color="#000" stop-opacity=".0058823529" offset="1.854956268%"></stop>
+      <stop stop-color="#000" stop-opacity=".0188235294" offset="3.50087464%"></stop>
+      <stop stop-color="#000" stop-opacity=".0376470588" offset="4.97361516%"></stop>
+      <stop stop-color="#000" stop-opacity=".0611764707" offset="6.3090379%"></stop>
+      <stop stop-color="#000" stop-opacity=".0882352941" offset="7.54300292%"></stop>
+      <stop stop-color="#000" stop-opacity=".1176470589" offset="8.71137026%"></stop>
+      <stop stop-color="#000" stop-opacity=".1482352941" offset="9.85%"></stop>
+      <stop stop-color="#000" stop-opacity=".1788235293" offset="10.99475218%"></stop>
+      <stop stop-color="#000" stop-opacity=".2082352941" offset="12.18148688%"></stop>
+      <stop stop-color="#000" stop-opacity=".2352941175" offset="13.44606414%"></stop>
+      <stop stop-color="#000" stop-opacity=".2600000001" offset="14.82434402%"></stop>
+      <stop stop-color="#000" stop-opacity=".2788235295" offset="16.35218658%"></stop>
+      <stop stop-color="#000" stop-opacity=".2929411764" offset="18.0654519%"></stop>
+      <stop stop-color="#000" stop-opacity=".3" offset="20%"></stop>
+      <stop stop-color="#000" stop-opacity=".3" offset="80%"></stop>
+      <stop stop-color="#000" stop-opacity=".2929411764" offset="81.854956268%"></stop>
+      <stop stop-color="#000" stop-opacity=".2788235295" offset="83.50087464%"></stop>
+      <stop stop-color="#000" stop-opacity=".2600000001" offset="84.97361516%"></stop>
+      <stop stop-color="#000" stop-opacity=".2352941175" offset="86.3090379%"></stop>
+      <stop stop-color="#000" stop-opacity=".2082352941" offset="87.54300292%"></stop>
+      <stop stop-color="#000" stop-opacity=".1788235293" offset="88.71137026%"></stop>
+      <stop stop-color="#000" stop-opacity=".1482352941" offset="89.85%"></stop>
+      <stop stop-color="#000" stop-opacity=".1176470589" offset="90.99475218%"></stop>
+      <stop stop-color="#000" stop-opacity=".0882352941" offset="92.18148688%"></stop>
+      <stop stop-color="#000" stop-opacity=".0611764707" offset="93.44606414%"></stop>
+      <stop stop-color="#000" stop-opacity=".0376470588" offset="94.82434402%"></stop>
+      <stop stop-color="#000" stop-opacity=".0188235294" offset="96.35218658%"></stop>
+      <stop stop-color="#000" stop-opacity=".0058823529" offset="98.0654519%"></stop>
+      <stop stop-color="#000" stop-opacity="0" offset="100%"></stop>
     </linearGradient>
   </defs>
-  <g id="rect" stroke="none" fill="none">
+  <g stroke="none" fill="none">
     <rect fill="url(#a)" x="0" y="0" width="100%" height="100%"></rect>
-    <line x1="0" y1="10%" x2="100%" y2="10%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="20%" x2="100%" y2="20%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="30%" x2="100%" y2="30%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="40%" x2="100%" y2="40%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="60%" x2="100%" y2="60%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="70%" x2="100%" y2="70%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="80%" x2="100%" y2="80%" stroke="#22212C" stroke-dasharray="10,10"></line>
-    <line x1="0" y1="90%" x2="100%" y2="90%" stroke="#22212C" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="20%" x2="100%" y2="20%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="32%" x2="100%" y2="32%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="44%" x2="100%" y2="44%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="56%" x2="100%" y2="56%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="68%" x2="100%" y2="68%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
+    <line x1="0" y1="80%" x2="100%" y2="80%" stroke="#fff" stroke-opacity=".05" stroke-dasharray="10,10"></line>
   </g>
 </svg>
