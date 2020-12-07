@@ -1,11 +1,11 @@
 <script>
-  import bot from '../stores/bot'
-
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
   import ListItem from "../components/ListItem.svelte";
   import CurrencySummary from "../components/CurrencySummary.svelte";
   import LogSummary from "../components/LogSummary.svelte";
+
+  export let bot;
 
   const titleBarProps = {
     title: 'Lenny',

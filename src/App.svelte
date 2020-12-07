@@ -4,7 +4,7 @@
 	import routes from './routes';
 </script>
 
+<Gradients />
 <main>
   <Router {routes} restoreScrollState={true} />
-  <Gradients />
 </main>

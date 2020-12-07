@@ -1,9 +1,8 @@
 <script>
-  import bot from '../stores/bot'
-
   import TitleBar from "../components/TitleBar.svelte";
   import LogItem from "../components/LogItem.svelte";
 
+  export let bot;
   export let params = {};
 
   const titleBarProps = {

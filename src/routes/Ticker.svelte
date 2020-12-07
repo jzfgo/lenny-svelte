@@ -2,7 +2,6 @@
   import { tweenFrom } from '../utils/tweens';
 
   import f from '../stores/formatters';
-  import bot from '../stores/bot';
 
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
@@ -11,6 +10,7 @@
   import ListItem from "../components/ListItem.svelte";
   import LogSummary from "../components/LogSummary.svelte";
 
+  export let bot;
   export let params = {};
 
   const rateTween = tweenFrom(0);
