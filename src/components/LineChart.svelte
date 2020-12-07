@@ -5,17 +5,16 @@
   import { scaleLinear } from 'd3-scale';
   import { line, curveBasis } from 'd3-shape';
 
-  // the props
   export let chart;
   export let width;
   export let height;
-  export let gradientStart;
-  export let gradientEnd;
+  export let gradientStart = '#ffca80';
+  export let gradientEnd = '#ffca80';
   export let strokeWidth;
   export let startOpacity = 1;
   export let animationDuration = '1s';
 
-  const { meta, points } = chart;
+  const { points } = chart;
 
   // the scales
   const xScale = scaleLinear()

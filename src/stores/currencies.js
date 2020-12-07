@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { readable } from "svelte/store";
 import currenciesCfg from "../config/currencies";
 
-export default writable(currenciesCfg);
+export default readable(currenciesCfg);

@@ -8,9 +8,6 @@
         "JPY",
         "USD"
       ],
-      "effRateMode": "lentperc",
-      "gradientEnd": "#ffca80",
-      "gradientStart": "#ffca80",
       "refreshInterval": 30
     },
     "chart": {

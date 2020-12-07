@@ -38,4 +38,4 @@ routes.set("/settings", wrap({ component: Settings }));
 
 routes.set("*", wrap({ component: NotFound }));
 
-export default routes;
+export { routes, bot };
