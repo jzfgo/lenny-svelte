@@ -8,7 +8,7 @@
   export let chart;
   export let width;
   export let height;
-  export let gradientStart = '#ffca80';
+  export let gradientStart = '#ff80bf';
   export let gradientEnd = '#ffca80';
   export let strokeWidth;
   export let startOpacity = 1;
