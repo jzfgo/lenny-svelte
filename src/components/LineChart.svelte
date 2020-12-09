@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import * as Pancake from '@sveltejs/pancake';
   import { extent } from 'd3-array';
-  import { scaleLinear } from 'd3-scale';
+  import { scaleLinear, scaleTime } from 'd3-scale';
   import { line, curveBasis } from 'd3-shape';
 
   export let chart;
@@ -16,19 +16,21 @@
 
   const { points } = chart;
 
-  // the scales
-  const xScale = scaleLinear()
-    .domain(extent(points.map(d => d.x)))
+  const xAccessor = (d) => d.x;
+  const yAccessor = (d) => d.y;
+
+  const xScale = scaleTime()
+    .domain(extent(points, xAccessor))
     .range([0, 100]);
 
   const yScale = scaleLinear()
-    .domain(extent(points.map(d => d.y)))
+    .domain(extent(points, yAccessor))
     .range([100, 0]);
 
   // the path generator
   const pathLine = line()
-    .x(d => xScale(d.x))
-    .y(d => yScale(d.y))
+    .x(d => xScale(xAccessor(d)))
+    .y(d => yScale(yAccessor(d)))
     .curve(curveBasis);
 
   let wrapper;
