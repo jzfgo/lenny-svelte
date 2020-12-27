@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let change24h;
   export let icon;
   export let rate;

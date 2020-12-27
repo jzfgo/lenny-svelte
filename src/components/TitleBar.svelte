@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import ImageButton from './ImageButton.svelte';
 
   import LogoIcon from '../assets/images/lenny.svg';

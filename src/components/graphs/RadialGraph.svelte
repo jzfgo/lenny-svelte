@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let pct = 0;
   export let radius = 24;
   export let stokeWidth = 2;

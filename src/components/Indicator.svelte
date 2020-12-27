@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import icons from '../ui-icons'
 
   export let size = 'small';

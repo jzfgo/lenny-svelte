@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import TitleBar from "../components/TitleBar.svelte";
   import TotalEarnings from "../components/TotalEarnings.svelte";
   import ListItem from "../components/ListItem.svelte";

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import f from '../stores/formatters';
 
   import RadialGraph from './graphs/RadialGraph.svelte';

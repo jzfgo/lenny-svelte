@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { tweenFrom } from '../utils/tweens';
 
   import f from '../stores/formatters';

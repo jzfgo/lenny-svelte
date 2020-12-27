@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import TitleBar from "../components/TitleBar.svelte";
   import LogItem from "../components/LogItem.svelte";
 

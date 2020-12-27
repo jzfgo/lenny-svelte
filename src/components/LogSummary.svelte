@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import * as timeago from 'timeago.js';
   import { onInterval } from '../utils'
 
