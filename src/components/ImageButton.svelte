@@ -1,8 +1,10 @@
 <script lang="ts">
+import type { SvelteComponent } from 'svelte';
+
   import { push } from 'svelte-spa-router'
 
-  export let link;
-  export let image;
+  export let link : string;
+  export let image : SvelteComponent;
 
   const changeView = () => link && push(link);
 </script>

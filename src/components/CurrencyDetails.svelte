@@ -18,10 +18,10 @@
   export let value3 = 0.0;
   export let value3label = 'Label';
 
-  export let gradientStart;
-  export let gradientEnd;
+  export let gradientStart : string;
+  export let gradientEnd : string;
 
-  export let altValues = {};
+  export let altValues = {} as any;
 
   let showAlt = false;
 
@@ -37,7 +37,7 @@
 
 <div class="currency-details" on:click={() => showAlt = !showAlt}>
   <div class="graph">
-    <RadialGraph radius="48" pct={pct1} {gradientStart} {gradientEnd}>
+    <RadialGraph radius={48} pct={pct1} {gradientStart} {gradientEnd}>
       <div class="percentages">
         <div class="pct-1">
           <div class="label">{pct1label}</div>

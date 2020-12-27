@@ -5,19 +5,24 @@
   import { scaleLinear, scaleTime } from 'd3-scale';
   import { line, curveBasis } from 'd3-shape';
 
-  export let chart;
-  export let width;
-  export let height;
+  type Point = {
+    x: number,
+    y: number,
+  }
+
+  export let chart = {} as any;
+  export let width : string;
+  export let height : string;
   export let gradientStart = '#ff80bf';
   export let gradientEnd = '#ffca80';
-  export let strokeWidth;
+  export let strokeWidth : string;
   export let startOpacity = 1;
   export let animationDuration = '1s';
 
   const { points } = chart;
 
-  const xAccessor = (d) => d.x;
-  const yAccessor = (d) => d.y;
+  const xAccessor = (d: Point) => d.x;
+  const yAccessor = (d: Point) => d.y;
 
   const xScale = scaleTime()
     .domain(extent(points, xAccessor))
@@ -29,14 +34,14 @@
 
   // the path generator
   const pathLine = line()
-    .x(d => xScale(xAccessor(d)))
-    .y(d => yScale(yAccessor(d)))
+    .x((d: Point) => xScale(xAccessor(d)))
+    .y((d: Point) => yScale(yAccessor(d)))
     .curve(curveBasis);
 
-  let wrapper;
+  let wrapper : HTMLElement;
   let lineLength = 0;
   onMount(() => {
-    const path = wrapper.querySelector('path.data');
+    const path : SVGPathElement = wrapper.querySelector('path.data');
     lineLength = path.getTotalLength() * (wrapper.clientWidth / 100);
   });
 </script>
@@ -50,7 +55,7 @@
           <stop offset="100%" stop-color={gradientEnd} />
         </linearGradient>
       </defs>
-      <Pancake.SvgLine data={points} let:d>
+      <Pancake.SvgLine data={points}>
         <path class="data" d={pathLine(points)} stroke={`url(#linear-${gradientStart}-${gradientEnd})`} />
       </Pancake.SvgLine>
     </Pancake.Svg>

@@ -5,21 +5,10 @@
   import CurrencySummary from "../components/CurrencySummary.svelte";
   import LogSummary from "../components/LogSummary.svelte";
 
-  export let bot;
-
-  const titleBarProps = {
-    title: 'Lenny',
-    left: {
-      icon: 'logo',
-    },
-    right: {
-      icon: 'settings',
-      link: '/settings',
-    }
-  };
+  export let bot = {} as any;
 </script>
 
-<TitleBar {...titleBarProps} />
+<TitleBar title="Lenny" left={{ icon: 'logo' }} right={{ icon: 'settings', link: '/settings' }} />
 
 {#if $bot.aggregate}
 <section class="summary">

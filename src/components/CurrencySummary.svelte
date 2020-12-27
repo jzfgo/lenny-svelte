@@ -6,10 +6,10 @@
   import RadialGraph from './graphs/RadialGraph.svelte';
   import LineChart from "../components/LineChart.svelte";
 
-  export let chart;
-  export let config;
-  export let pctLent;
-  export let summary;
+  export let chart = {} as any;
+  export let config = {} as any;
+  export let pctLent : number;
+  export let summary = {} as any;
 
   const { gradientStart, gradientEnd, icon } = config;
   const { earningsTotal, earningsToday, estEarnings24h } = summary;
@@ -40,7 +40,7 @@
     <Indicator icon="binoculars" value={$f.formatCurrency($estEarnings24hTween)} background={false} color="warning" />
   </div>
   <div class="line-chart">
-    <LineChart {chart} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity="0" />
+    <LineChart {chart} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity={0} />
   </div>
 </div>
 

@@ -3,7 +3,7 @@
 
   import AngleRight from '../assets/images/angle-right.svg';
 
-  export let link;
+  export let link : string;
 
   const changeView = () => link && push(link);
 </script>

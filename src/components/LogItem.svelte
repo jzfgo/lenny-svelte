@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let time;
-  export let message;
+  export let time : string;
+  export let message : string;
 </script>
 
 <div class="log-item">

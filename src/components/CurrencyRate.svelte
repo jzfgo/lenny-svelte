@@ -1,7 +1,10 @@
 <script lang="ts">
-  export let change24h;
-  export let icon;
-  export let rate;
+import type { SvelteComponent } from "svelte";
+
+
+  export let change24h : number;
+  export let icon : SvelteComponent;
+  export let rate : number;
   export let loss = false;
 </script>
 

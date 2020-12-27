@@ -1,4 +1,11 @@
-export default new Map([
+type Theme = {
+  colorBackground: string;
+  colorBackgroundDarker: string;
+  colorForegroundDarker: string;
+  colorMuted: string;
+};
+
+const themes = new Map([
   [
     "default",
     {
@@ -54,3 +61,6 @@ export default new Map([
     },
   ],
 ]);
+
+export default themes;
+export type { Theme };

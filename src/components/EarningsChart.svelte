@@ -5,9 +5,9 @@
   import LineChart from "../components/LineChart.svelte";
   import Indicator from "../components/Indicator.svelte";
 
-  export let chart;
-  export let gradientStart;
-  export let gradientEnd;
+  export let chart = {} as any;
+  export let gradientStart : string;
+  export let gradientEnd : string;
 
   const chartMin = tweenFrom(0);
   const chartMax = tweenFrom(0);

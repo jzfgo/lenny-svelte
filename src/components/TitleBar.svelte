@@ -5,12 +5,17 @@
   import SettingsIcon from '../assets/images/cog.svg';
   import BackIcon from '../assets/images/angle-left.svg';
 
+  type ButtonProps = {
+    icon?: string,
+    link?: string,
+  }
+
   export let title = '';
-  export let left = {
-      icon: 'back',
-      link: '/',
+  export let left: ButtonProps = {
+    icon: 'back',
+    link: '/',
   };
-  export let right = {};
+  export let right: ButtonProps = {};
 
   const icons = {
     logo: LogoIcon,

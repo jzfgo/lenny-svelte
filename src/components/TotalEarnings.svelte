@@ -11,9 +11,9 @@
   import AngleRightIcon from '../assets/images/angle-right.svg';
   import LineChartBg from '../assets/images/line-chart-bg.svg';
 
-  export let chart;
-  export let config;
-  export let summary;
+  export let chart = {} as any;
+  export let config = {} as any;
+  export let summary = {} as any;
 
   const earningsTotal = tweenFrom(0);
   const earningsToday = tweenFrom(0);

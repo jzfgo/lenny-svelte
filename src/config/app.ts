@@ -1,5 +1,6 @@
 import themes from "./themes";
 
+// @ts-ignore
 const refreshInterval = __myapp.env.REFRESH_INTERVAL;
 
 export default {
