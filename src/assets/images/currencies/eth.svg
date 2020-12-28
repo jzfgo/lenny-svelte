@@ -1,4 +1,4 @@
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <path fill="url(#gradient-blue-green)" fill-rule="evenodd"
-    d="m20.5 17.08125-4.75 6.91875-4.75-6.91875 4.75 2.9zm-4.75-9.08125 4.746875 8.15-4.746875 2.9-4.75-2.9z" />
+    d="m21 17.08125-5 6.91875-5-6.91875 5 2.9zm-5-9.08125 4.9967105 8.15-4.9967105 2.9-5-2.9z" />
 </svg>
