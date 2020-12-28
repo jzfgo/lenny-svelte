@@ -21,7 +21,7 @@
   export let gradientStart : string;
   export let gradientEnd : string;
 
-  export let altValues = {} as any;
+  export let altValues;
 
   let showAlt = false;
 

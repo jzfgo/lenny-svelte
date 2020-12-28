@@ -10,8 +10,8 @@
   import ListItem from "../components/ListItem.svelte";
   import LogSummary from "../components/LogSummary.svelte";
 
-  export let bot = {} as any;
-  export let params = {} as any;
+  export let bot;
+  export let params;
 
   const rateTween = tweenFrom(0);
   const change24hTween = tweenFrom(0);
@@ -28,7 +28,7 @@
   const estEarningsMonth = tweenFrom(0);
   const estEarnings24h = tweenFrom(0);
 
-  let currency = {} as any;
+  let currency;
   $: if ($bot.currencies) {
     currency = $bot.currencies.get(params.ticker);
 
@@ -96,7 +96,7 @@
       value1label="year"
       value2label="month"
       value3label="day"
-      pct1label="APY"
+      pct1label="APR"
       pct2label="EDR"
       gradientStart={currency.config.gradientStart}
       gradientEnd={currency.config.gradientEnd}

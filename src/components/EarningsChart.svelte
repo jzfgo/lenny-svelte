@@ -5,7 +5,7 @@
   import LineChart from "../components/LineChart.svelte";
   import Indicator from "../components/Indicator.svelte";
 
-  export let chart = {} as any;
+  export let chart;
   export let gradientStart : string;
   export let gradientEnd : string;
 
@@ -20,7 +20,7 @@
 
 {#if chart}
   <div class="line-chart">
-    <LineChart {chart} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" />
+    <LineChart points={chart.points} {gradientStart} {gradientEnd} width="100vw" height="200px" strokeWidth="3px" />
     <div class="metadata">
       <Indicator icon="arrow-to-left" value={$f.formatDate(chart.meta.startDate)} color="muted" />
 

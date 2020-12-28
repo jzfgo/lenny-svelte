@@ -2,8 +2,8 @@
   import TitleBar from "../components/TitleBar.svelte";
   import LogItem from "../components/LogItem.svelte";
 
-  export let bot = {} as any;
-  export let params = {} as any;
+  export let bot;
+  export let params;
 
   const titleBarProps = {
     title: 'Activity Log',

@@ -5,7 +5,7 @@
   import CurrencySummary from "../components/CurrencySummary.svelte";
   import LogSummary from "../components/LogSummary.svelte";
 
-  export let bot = {} as any;
+  export let bot;
 </script>
 
 <TitleBar title="Lenny" left={{ icon: 'logo' }} right={{ icon: 'settings', link: '/settings' }} />
@@ -23,7 +23,7 @@
   {#each Array.from($bot.currencies) as [ticker, { chart, config, details: { pctLent, maxToLend }, summary }]}
     {#if maxToLend > 0}
       <ListItem link={`/currency/${ticker}`}>
-        <CurrencySummary {chart} {config} {pctLent} {summary} />
+        <CurrencySummary points={chart?.points} {config} {pctLent} {summary} />
       </ListItem>
     {/if}
   {/each}

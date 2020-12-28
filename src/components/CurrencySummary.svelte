@@ -6,10 +6,15 @@
   import RadialGraph from './graphs/RadialGraph.svelte';
   import LineChart from "../components/LineChart.svelte";
 
-  export let chart = {} as any;
-  export let config = {} as any;
+  type Point = {
+    x: number,
+    y: number,
+  }
+
+  export let points : Array<Point>;
+  export let config;
   export let pctLent : number;
-  export let summary = {} as any;
+  export let summary;
 
   const { gradientStart, gradientEnd, icon } = config;
   const { earningsTotal, earningsToday, estEarnings24h } = summary;
@@ -39,9 +44,11 @@
     <Indicator icon="piggy-bank" value={$f.formatCurrency($earningsTodayTween)} background={false} color="success" />
     <Indicator icon="binoculars" value={$f.formatCurrency($estEarnings24hTween)} background={false} color="warning" />
   </div>
+{#if points}
   <div class="line-chart">
-    <LineChart {chart} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity={0} />
+    <LineChart points={points} {gradientStart} {gradientEnd} width="4rem" height="3rem" strokeWidth="1px" startOpacity={0} />
   </div>
+{/if}
 </div>
 
 <style>

@@ -10,7 +10,7 @@
     y: number,
   }
 
-  export let chart = {} as any;
+  export let points : Array<Point>;
   export let width : string;
   export let height : string;
   export let gradientStart = '#ff80bf';
@@ -18,8 +18,6 @@
   export let strokeWidth : string;
   export let startOpacity = 1;
   export let animationDuration = '1s';
-
-  const { points } = chart;
 
   const xAccessor = (d: Point) => d.x;
   const yAccessor = (d: Point) => d.y;
