@@ -6,8 +6,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "validate": "svelte-check",
-    "deploy": "sh -ac '. .env; scp -r public/* $DEPLOY_DESTINATION'",
-    "syncData": "sh -ac '. .env; scp $DEPLOY_DESTINATION/*.json public/'"
+    "deploy": "sh -ac '. .env; rsync -avv -e ssh --exclude='*.json' public/* $DEPLOY_DESTINATION'",
+    "syncData": "sh -ac '. .env; rsync -avv -e ssh $DEPLOY_DESTINATION/*.json public/'"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
